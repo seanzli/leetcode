@@ -1,8 +1,8 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
-PROJECT(code1)
+PROJECT(code2)
 
 #include 
-include_directories(${PROJECT_SOURCE_DIR}/code1)
+include_directories(${PROJECT_SOURCE_DIR}/code2)
 
 # src
 add_subdirectory(./src)

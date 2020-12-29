@@ -9,6 +9,7 @@ return [0, 1].
 */
 
 #include <iostream>
+#include <unordered_map>
 
 class Solution
 {
@@ -16,7 +17,7 @@ public:
     Solution(){};
     ~Solution(){};
 
-    void mainFunction(){
+/*     void mainFunction(){
         using namespace std;
 
         int num[4] = {2,7,11,15};
@@ -28,11 +29,34 @@ public:
             {
                 if (num[i]+num[j] == target)
                 {
-                    cout << i << j << endl;
+                    cout << i << "," << j << endl;
                     return;
                 }   
             }   
         }
         cout << "none" << endl;
+    } */
+
+    void mainFunction(){
+        using namespace std;
+
+        int num[4] = {2,7,11,15};
+        int target = 9;
+
+        unordered_map<int, int> hash;
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (hash.find(target - num[i])==hash.end())
+                hash[num[i]] = i;
+            else
+            {
+                cout << i << "," << hash[target-num[i]];
+                return;
+            }
+        }
+        
+        cout << "None" << endl;
+        return;
     }
 };

@@ -1,18 +1,17 @@
 
-#include "../code10/solution.hpp"
-#include <iostream>
+#include "../code23/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-/*     string s = argv[0];
-    string p = argv[1]; */
-    string s = "aaa";
-    string p = "ab*ac*a";
+    vector<ListNode*> lists;
+    lists.push_back(nullptr);
+/*    lists.push_back(new ListNode(1, new ListNode(4, new ListNode(5))));
+     lists.push_back(new ListNode(1, new ListNode(3, new ListNode(4))));
+    lists.push_back(new ListNode(2, new ListNode(6))); */
 
-    bool out = test->isMatch(s, p);
+    ListNode *out = test->mergeKLists(lists);
 
-    cout << out << endl;
-    return out;
+    return 0;
 }

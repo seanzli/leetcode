@@ -1,15 +1,18 @@
 
-#include "../code4/solution.hpp"
+#include "../code10/solution.hpp"
+#include <iostream>
 
-int main(){
-    Solution *p = new Solution();
-    vector<int> num1, num2;
-//    num1.push_back(0);
-//    num1.push_back(3);
-    num2.push_back(1);
- //   num2.push_back(7);
+int main(int argc, char* argv[]){
+    Solution *test = new Solution();
 
-    double out = p->findMedianSortedArrays(num1, num2);
+    
+/*     string s = argv[0];
+    string p = argv[1]; */
+    string s = "mississippi";
+    string p = "mis*is*p*.";
 
-    return 0;
+    bool out = test->findMatch(s, p);
+
+    cout << out << endl;
+    return out;
 }

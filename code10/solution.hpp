@@ -7,56 +7,24 @@ using namespace std;
 
 class Solution {
 public:
-    bool findMatch(string &s, string &p) {
-        
-        char *p1 = (char*)s.c_str(), *p2 = (char*)p.c_str();
-        char cur = '\0';
-        int idx1 = 0, idx2 = 0;
-        for (; idx1<s.size() & idx2<p.size();)
-        {
-            if (p1[idx1]==p2[idx2])
-            {
-                cur = p2[idx2];
-                idx1++;
-                idx2++;
-                continue;
-            }
-            
-            if (p2[idx1] == '.')
-            {
-                cur = '.';
-                idx1++;
-                idx2++;
-                continue;
-            }
-
-            if (p2[idx1] == '*')
-            {
-                if (cur == '.')
-                {
-                    idx1++;
-                    continue;
-                }
-                if (p1[idx1] == cur)
-                {
-                    idx1++;
-                    continue;
-                }
-                else
-                {
-                    idx2++;
-                    continue;
-                }
-            }
-            
-            idx2++;
-            
+    bool isMatch(string &s, string &p) {
+        if (p.empty())
+            return s.empty();
+        if (p.size() == 1) {
+            return (s.size() == 1 && (s[0] == p[0] || p[0] == '.'));
         }
-        
-        if (idx1==s.size())
+        if (p[1] != '*')
         {
-            return true;
+            if (s.empty())
+                return false;
+            return (s[0] == p[0] || p[0] == '.') && isMatch(s.substr(1), p.substr(1));
         }
-        return false;
+        while (!s.empty() && (s[0] == p[0] || p[0] == '.'))
+        {
+            if (isMatch(s, p.substr(2)))
+                return true;
+            s = s.substr(1);
+        }
+        return isMatch(s, p.substr(2));
     }
 };

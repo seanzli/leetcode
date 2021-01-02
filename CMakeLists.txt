@@ -1,8 +1,8 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
-PROJECT(code7)
+PROJECT(code8)
 
 #include 
-include_directories(${PROJECT_SOURCE_DIR}/code7)
+include_directories(${PROJECT_SOURCE_DIR}/code8)
 
 # src
 add_subdirectory(./src)
@@ -15,15 +15,14 @@ include(CTest)
 enable_testing()
 
 macro (do_test arg1 result)
-  add_test (test_${arg1} code7 ${arg1} )
+  add_test (test_${arg1} code8 ${arg1} )
   set_tests_properties (test_${arg1}
     PROPERTIES PASS_REGULAR_EXPRESSION ${result})
 endmacro (do_test)
 
 #do_test("abc" "false")
-do_test(123  "321")
-do_test(-123 "-321")
-do_test(120  "21")
-do_test(0  "0")
-do_test(1534236469 "0")
-do_test(-2147483648 "0")
+do_test("42"  "42")
+do_test("    -42"  "-42")
+do_test("4193 with words"  "4193")
+do_test("words and 987"  "0")
+do_test("-91283472332"  "-2147483648")

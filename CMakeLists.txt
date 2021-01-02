@@ -1,8 +1,8 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
-PROJECT(code6)
+PROJECT(code7)
 
 #include 
-include_directories(${PROJECT_SOURCE_DIR}/code6)
+include_directories(${PROJECT_SOURCE_DIR}/code7)
 
 # src
 add_subdirectory(./src)
@@ -14,13 +14,16 @@ target_link_libraries(${PROJECT_NAME} src_lib)
 include(CTest)
 enable_testing()
 
-macro (do_test arg1 arg2 result)
-  add_test (test_${arg1}_${arg2} code6 ${arg1} ${arg2})
-  set_tests_properties (test_${arg1}_${arg2}
+macro (do_test arg1 result)
+  add_test (test_${arg1} code7 ${arg1} )
+  set_tests_properties (test_${arg1}
     PROPERTIES PASS_REGULAR_EXPRESSION ${result})
 endmacro (do_test)
 
 #do_test("abc" "false")
-do_test("A" 3 "A")
-do_test("PAYPALISHIRING" 3 "PAHNAPLSIIGYIR")
-do_test("PAYPALISHIRING" 4 "PINALSIGYAHRPI")
+do_test(123  "321")
+do_test(-123 "-321")
+do_test(120  "21")
+do_test(0  "0")
+do_test(1534236469 "0")
+do_test(-2147483648 "0")

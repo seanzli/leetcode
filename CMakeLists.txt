@@ -1,5 +1,5 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
-PROJECT(code14)
+PROJECT(code15)
 
 #include 
 include_directories(${PROJECT_SOURCE_DIR}/${PROJECT_NAME})

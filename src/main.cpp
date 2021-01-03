@@ -1,13 +1,13 @@
 
-#include "../code12/solution.hpp"
+#include "../code13/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    int num = atoi(argv[1]);
+    string s = argv[1];
 
-    cout <<test->intToRoman(num)<<endl;
+    cout <<test->romanToInt(s)<<endl;
 
     return 0;
 }

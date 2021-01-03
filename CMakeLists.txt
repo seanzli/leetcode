@@ -1,5 +1,5 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
-PROJECT(code11)
+PROJECT(code12)
 
 #include 
 include_directories(${PROJECT_SOURCE_DIR}/${PROJECT_NAME})
@@ -20,3 +20,8 @@ macro (do_test arg1 result)
     PROPERTIES PASS_REGULAR_EXPRESSION ${result})
 endmacro (do_test)
 
+do_test(3 "III")
+do_test(4 "IV")
+do_test(9 "IX")
+do_test(58 "LVIII")
+do_test(1994 "MCMXCIV")

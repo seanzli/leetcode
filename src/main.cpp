@@ -1,15 +1,16 @@
 
-#include "../code18/solution.hpp"
+#include "../code19/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    //vector<string> strs = {"reflower","flow","flight"};
-    //string str = "2";
-    vector<int> nums= {1,0,-1,0,-2,2};
-    int target = 0;
-    test->fourSum(nums, target);
+
+    ListNode *num_list = new ListNode(1, new ListNode(2,new ListNode(3,new ListNode(4,new ListNode(5)))));
+    //ListNode *num_list = new ListNode(1, new ListNode(2));
+    //ListNode *num_list = new ListNode(1);
+    int target = 2;
+    test->removeNthFromEnd(num_list, target);
 
     return 0;
 }

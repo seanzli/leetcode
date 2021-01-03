@@ -1,13 +1,13 @@
 
-#include "../code13/solution.hpp"
+#include "../code14/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    string s = argv[1];
+    vector<string> strs = {"reflower","flow","flight"};
 
-    cout <<test->romanToInt(s)<<endl;
+    cout <<test->longestCommonPrefix(strs)<<endl;
 
     return 0;
 }

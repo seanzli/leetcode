@@ -1,12 +1,11 @@
 
-#include "../code28/solution.hpp"
+#include "../code29/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    string haystack = "aaaaaa", needle = "aaaaab";
-    cout << test->strStr(haystack,needle) << endl;
+    cout << test->divide(100,3) << endl;
 
     return 0;
 }

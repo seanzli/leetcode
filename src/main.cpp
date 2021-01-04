@@ -1,11 +1,20 @@
 
-#include "../code29/solution.hpp"
+#include "../code30/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    cout << test->divide(100,3) << endl;
+    string s = "barfoofoobarthefoobarman";
+
+    vector<string> words = {"bar","foo","the"};
+    vector<int> out = test->findSubstring(s,words);
+
+    for (int i = 0; i < out.size(); i++)
+    {
+        cout << out[i] << endl;
+    }
+    
 
     return 0;
 }

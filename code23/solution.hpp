@@ -17,7 +17,7 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* mergeKLists(vector<ListNode*>& lists) {
+/*     ListNode* mergeKLists(vector<ListNode*>& lists) {
         
         if (lists.size()<1)
             return nullptr;
@@ -42,7 +42,6 @@ public:
 
             if (p_out == nullptr)
             {
-
                 p_out = new ListNode(min_value);
                 p_ = p_out;
             }
@@ -57,5 +56,59 @@ public:
         }
 
         return p_;
+    } */
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        if (lists.size()==0)
+            return nullptr;
+        if (lists.size()==1)
+            return lists[0];
+        
+        ListNode *p1 = lists[lists.size()-1], *p2=lists[lists.size()-2];
+        ListNode *out, *cur;
+        
+        lists.pop_back();lists.pop_back();
+        if (p1==nullptr)
+        {
+            lists.push_back(p2);
+            return mergeKLists(lists);
+        }
+        if (p2==nullptr)
+        {
+            lists.push_back(p1);
+            return mergeKLists(lists);
+        }
+        
+        if (p1->val > p2->val)
+        {
+            out = new ListNode(p2->val);
+            p2 = p2->next;
+        }
+        else
+        {
+            out = new ListNode(p1->val);
+            p1 = p1->next;
+        }
+        cur = out;
+        while ((p1!=nullptr) && (p2!=nullptr))
+        {
+            if (p1->val > p2->val)
+            {
+                cur->next = new ListNode(p2->val);
+                cur = cur->next;
+                p2 = p2->next;
+            }
+            else
+            {
+                cur->next = new ListNode(p1->val);
+                cur = cur->next;
+                p1 = p1->next;
+            }
+        }
+        if (p1==nullptr)
+            cur->next = p2;
+        else if (p2==nullptr)
+            cur->next = p1;
+        lists.push_back(out);
+        return mergeKLists(lists);
     }
 };

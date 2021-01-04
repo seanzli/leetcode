@@ -1,12 +1,12 @@
 
-#include "../code27/solution.hpp"
+#include "../code28/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> in = {0,0,1,1,1,2,2,3,3,4};
-    cout << test->removeElement(in,4) << endl;
+    string haystack = "aaaaaa", needle = "aaaaab";
+    cout << test->strStr(haystack,needle) << endl;
 
     return 0;
 }

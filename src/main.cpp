@@ -1,15 +1,12 @@
 
-#include "../code25/solution.hpp"
+#include "../code26/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    ListNode *l1 = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6))))));
-/*     ListNode *l2 = new ListNode(-1, new ListNode(3, new ListNode(4)));
-    ListNode *l3 = new ListNode(2, new ListNode(6));//, new ListNode(4)));
-    vector<ListNode*> lists = {l1,nullptr,l2}; */
-    ListNode *out= test->reverseKGroup(l1,4);
+    vector<int> in = {0,0,1,1,1,2,2,3,3,4};
+    cout << test->removeDuplicates(in) << endl;
 
     return 0;
 }

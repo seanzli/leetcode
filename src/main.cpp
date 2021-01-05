@@ -1,5 +1,5 @@
 
-#include "../code30/solution.hpp"
+#include "../code31/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -7,12 +7,12 @@ int main(int argc, char* argv[])
 
     string s = "barfoofoobarthefoobarman";
 
-    vector<string> words = {"bar","foo","the"};
-    vector<int> out = test->findSubstring(s,words);
+    vector<int> words = {1,3,2};
+    test->nextPermutation(words);
 
-    for (int i = 0; i < out.size(); i++)
+    for (int i = 0; i < words.size(); i++)
     {
-        cout << out[i] << endl;
+        cout << words[i] << endl;
     }
     
 

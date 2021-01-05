@@ -1,5 +1,5 @@
 
-#include "../code32/solution.hpp"
+#include "../code33/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -7,8 +7,8 @@ int main(int argc, char* argv[])
 
     string s = "()(()";
 
-    vector<int> words = {1,3,2};
-    cout << test->longestValidParentheses(s) << endl;
+    vector<int> words = {4,5,6,7,0,1,2};
+    cout << test->search(words,1) << endl;
     
 
     return 0;

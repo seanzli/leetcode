@@ -1,5 +1,5 @@
 
-#include "../code34/solution.hpp"
+#include "../code35/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -7,8 +7,8 @@ int main(int argc, char* argv[])
 
     string s = "()(()";
 
-    vector<int> words = {5,7,7,8,8,10};
-    vector<int> out = test->searchRange(words,6);
+    vector<int> words = {1};
+    vector<int> out = {test->searchInsert(words,1)};
 
     for (int i = 0; i < out.size(); i++)
     {

@@ -1,5 +1,5 @@
 
-#include "../code33/solution.hpp"
+#include "../code34/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -7,9 +7,12 @@ int main(int argc, char* argv[])
 
     string s = "()(()";
 
-    vector<int> words = {4,5,6,7,0,1,2};
-    cout << test->search(words,1) << endl;
-    
+    vector<int> words = {5,7,7,8,8,10};
+    vector<int> out = test->searchRange(words,6);
 
+    for (int i = 0; i < out.size(); i++)
+    {
+        cout << out[i] << endl;
+    }
     return 0;
 }

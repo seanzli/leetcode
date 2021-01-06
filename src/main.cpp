@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    vector <int> nums = {2147483647,2147483646,2147483645,3,2,1,-1,0,-2147483648};
+    vector <int> nums = {2147483647,2147483646,2147483645,3,2,4,-1,0,-2147483648};
 
     cout << test->firstMissingPositive(nums)<<endl;
 

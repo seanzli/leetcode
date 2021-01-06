@@ -1,5 +1,5 @@
 
-#include "../code38/solution.hpp"
+#include "../code39/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,13 +8,20 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    
-    for (int i = 1; i <= 30; i++)
-    {
-        cout <<i << " --  "<< test->countAndSay(i) << endl;
-    }
+    vector <int> nums = {};
 
-   
+    vector<vector<int>> out  = test->combinationSum(nums, 0);
+
+    for (int i = 0; i < out.size(); i++)
+    {
+        for (int j = 0; j < out[i].size(); j++)
+        {
+            cout << out[i][j] << ",";
+        }
+        cout << endl;        
+    }
+    
+
     cout << (double)(clock() - start_time)/CLOCKS_PER_SEC << endl;
 
     return 0;

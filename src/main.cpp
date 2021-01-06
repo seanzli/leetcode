@@ -1,5 +1,5 @@
 
-#include "../code40/solution.hpp"
+#include "../code41/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,18 +8,18 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    vector <int> nums = {10,1,2,7,6,1,5};
+    vector <int> nums = {1,2,0};
 
-    vector<vector<int>> out  = test->combinationSum2(nums, 8);
+    cout << test->firstMissingPositive(nums);
 
-    for (int i = 0; i < out.size(); i++)
+/*     for (int i = 0; i < out.size(); i++)
     {
         for (int j = 0; j < out[i].size(); j++)
         {
             cout << out[i][j] << ",";
         }
         cout << endl;        
-    }
+    } */
     
 
     cout << (double)(clock() - start_time)/CLOCKS_PER_SEC << endl;

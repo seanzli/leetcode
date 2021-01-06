@@ -1,5 +1,5 @@
 
-#include "../code41/solution.hpp"
+#include "../code42/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,9 +8,9 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    vector <int> nums = {2147483647,2147483646,2147483645,3,2,4,-1,0,-2147483648};
+    vector <int> nums = {0,1,0,2,1,0,1,3,2,1,2,1};
 
-    cout << test->firstMissingPositive(nums)<<endl;
+    cout << test->trap(nums)<<endl;
 
 /*     for (int i = 0; i < out.size(); i++)
     {

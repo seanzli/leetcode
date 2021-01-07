@@ -1,5 +1,5 @@
 
-#include "../code55/solution.hpp"
+#include "../code56/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,20 +8,20 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    //vector<vector<int>> nums = {{1,2,3},{4,5,6},{7,8,9}};
-    vector<int> nums = {1};
+    vector<vector<int>> nums = {{1,4},{4,5}};
+    //vector<int> nums = {1};
     //vector<int> out =  test->canJump(nums);
-    cout << test->canJump(nums) << endl;
+    vector<vector<int>> out = test->merge(nums);
 
-/*     for (int i = 0; i < out.size(); i++)
+    for (int i = 0; i < out.size(); i++)
     {
         //cout << "/////" << endl;
-        //for (int j = 0; j < out[i].size(); j++)
+        for (int j = 0; j < out[i].size(); j++)
         {
-            cout << out[i] << "," ; 
+            cout << out[i][j] << "," ; 
         }
+        cout << endl; 
     } 
-    cout << endl; */
     
     cout << (double)(clock() - start_time)/CLOCKS_PER_SEC << endl;
 

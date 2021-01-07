@@ -1,5 +1,5 @@
 
-#include "../code48/solution.hpp"
+#include "../code49/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,21 +8,14 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    string s = "adceb";
-    string p = "a*c*b";
-    //vector<vector<int>> nums = {{5,1,9,11},
-                                //{2,4,8,10},
-                                //{13,3,6,7},
-                                //{15,14,12,16}};
-    //vector<vector<int>> nums = {{5,1,9,11},{2,4,8,10},{13,3,6,7},{15,14,12,16}};
-    vector<vector<int>> nums = {{1}};
-    test->rotate(nums);
+    vector<string> strs = {"tea","and","ace","ad","eat","dans"};
+    vector<vector<string>> out = test->groupAnagrams(strs);
 
-    for (int i = 0; i < nums.size(); i++)
+    for (int i = 0; i < out.size(); i++)
     {
-        for (int j = 0; j < nums[i].size(); j++)
+        for (int j = 0; j < out[i].size(); j++)
         {
-            cout << nums[i][j] << ",";
+            cout << out[i][j] << ",";
         }
         cout << endl;
     }

@@ -1,5 +1,5 @@
 
-#include "../code47/solution.hpp"
+#include "../code48/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -10,14 +10,19 @@ int main(int argc, char* argv[])
 
     string s = "adceb";
     string p = "a*c*b";
-    vector<int> nums = {-1,-1,1,3};
-    vector<vector<int>> out = test->permuteUnique(nums);
+    //vector<vector<int>> nums = {{5,1,9,11},
+                                //{2,4,8,10},
+                                //{13,3,6,7},
+                                //{15,14,12,16}};
+    //vector<vector<int>> nums = {{5,1,9,11},{2,4,8,10},{13,3,6,7},{15,14,12,16}};
+    vector<vector<int>> nums = {{1}};
+    test->rotate(nums);
 
-    for (int i = 0; i < out.size(); i++)
+    for (int i = 0; i < nums.size(); i++)
     {
-        for (int j = 0; j < out[i].size(); j++)
+        for (int j = 0; j < nums[i].size(); j++)
         {
-            cout << out[i][j] << ",";
+            cout << nums[i][j] << ",";
         }
         cout << endl;
     }

@@ -1,5 +1,5 @@
 
-#include "../code46/solution.hpp"
+#include "../code47/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -10,8 +10,8 @@ int main(int argc, char* argv[])
 
     string s = "adceb";
     string p = "a*c*b";
-    vector<int> nums = {1,2,3};
-    vector<vector<int>> out = test->permute(nums);
+    vector<int> nums = {-1,-1,1,3};
+    vector<vector<int>> out = test->permuteUnique(nums);
 
     for (int i = 0; i < out.size(); i++)
     {

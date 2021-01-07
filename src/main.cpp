@@ -1,5 +1,5 @@
 
-#include "../code53/solution.hpp"
+#include "../code54/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,18 +8,18 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    vector<int> nums = {-2,1,-3,4,-1,2,1,-5,4};
-    vector<string> strs = {"tea","and","ace","ad","eat","dans"};
-    cout << test->maxSubArray(nums) << endl;
+    vector<vector<int>> nums = {{1,2,3},{4,5,6},{7,8,9}};
+    vector<int> out =  test->spiralOrder(nums);
 
-/*     for (int i = 0; i < out.size(); i++)
+    for (int i = 0; i < out.size(); i++)
     {
-        cout << "/////" << endl;
-        for (int j = 0; j < out[i].size(); j++)
+        //cout << "/////" << endl;
+        //for (int j = 0; j < out[i].size(); j++)
         {
-            cout << out[i][j] << endl;
+            cout << out[i] << "," ; 
         }
-    } */
+    } 
+    cout << endl;
     
     cout << (double)(clock() - start_time)/CLOCKS_PER_SEC << endl;
 

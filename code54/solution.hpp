@@ -13,49 +13,33 @@ using namespace std;
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        vector<int> out;
-        int i_num=0, row = matrix.size(), col = matrix[0].size();
-        if (row==1)
-            return matrix[0];
-        if (col==1)
-        {
-            for (int i = 0; i < row; i++)
-            {
-                out.push_back(matrix[i][0]);
-            }
-            return out;
+        if (matrix.size() == 0 || matrix[0].size() == 0) {
+            return {};
         }
-        
-        while ((i_num <= col/2) && (i_num <= row/2))
-        {           
-            for (int i = i_num; i < col-i_num-1; i++)
-                out.push_back(matrix[i_num][i]);
-            for (int i = i_num; i < row-i_num-1; i++)
-                out.push_back(matrix[i][col-i_num-1]);
-            for (int i = col-i_num-1; i >i_num; i--)
-                out.push_back(matrix[row-i_num-1][i]);
-            for (int i = row-i_num-1; i >i_num; i--)
-                out.push_back(matrix[i][i_num]);
 
-            i_num++;
-        }
-        
-        if (out.size()<row*col)
-        {
-            if (row>col)
-            {
-                i_num = row/2;
-                for (int i = i_num; i < row-i_num; i++)
-                    out.push_back(matrix[i_num][i]);
+        int rows = matrix.size(), columns = matrix[0].size();
+        vector<int> order;
+        int left = 0, right = columns - 1, top = 0, bottom = rows - 1;
+        while (left <= right && top <= bottom) {
+            for (int column = left; column <= right; column++) {
+                order.push_back(matrix[top][column]);
             }
-            else
-            {
-                i_num = col/2;
-                for (int i = i_num; i < col-i_num; i++)
-                    out.push_back(matrix[i][i_num]);
+            for (int row = top + 1; row <= bottom; row++) {
+                order.push_back(matrix[row][right]);
             }
-            
+            if (left < right && top < bottom) {
+                for (int column = right - 1; column > left; column--) {
+                    order.push_back(matrix[bottom][column]);
+                }
+                for (int row = bottom; row > top; row--) {
+                    order.push_back(matrix[row][left]);
+                }
+            }
+            left++;
+            right--;
+            top++;
+            bottom--;
         }
-        return out;
+        return order;
     }
 };

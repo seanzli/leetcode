@@ -8,7 +8,8 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    vector<vector<int>> nums = {{1,2,3},{4,5,6},{7,8,9}};
+    //vector<vector<int>> nums = {{1,2,3},{4,5,6},{7,8,9}};
+    vector<vector<int>> nums = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
     vector<int> out =  test->spiralOrder(nums);
 
     for (int i = 0; i < out.size(); i++)

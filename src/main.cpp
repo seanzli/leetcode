@@ -1,5 +1,5 @@
 
-#include "../code56/solution.hpp"
+#include "../code57/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,10 +8,11 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    vector<vector<int>> nums = {{1,4},{4,5}};
+    vector<vector<int>> nums = {{1,3},{6,5}};
     //vector<int> nums = {1};
     //vector<int> out =  test->canJump(nums);
-    vector<vector<int>> out = test->merge(nums);
+    vector<int> newV = {2,5};
+    vector<vector<int>> out = test->insert(nums, newV);
 
     for (int i = 0; i < out.size(); i++)
     {

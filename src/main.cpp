@@ -1,5 +1,5 @@
 
-#include "../code62/solution.hpp"
+#include "../code63/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,7 +8,8 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    cout << test->uniquePaths(10,10) << endl;
+    vector<vector<int>> in = {{0,0,0},{0,1,0},{0,0,0}};
+    cout << test->uniquePathsWithObstacles(in) << endl;
 
  /*    while (out!=nullptr)
     {

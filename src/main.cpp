@@ -1,5 +1,5 @@
 
-#include "../code64/solution.hpp"
+#include "../code65/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,8 +8,9 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    vector<vector<int>> in = {{1,2,3},{4,5,6}};//,{4,2,1}};
-    cout << test->minPathSum(in) << endl;
+    string in = argv[1];
+    //vector<vector<int>> in = {{1,2,3},{4,5,6}};//,{4,2,1}};
+    cout << test->isNumber(in) << endl;
 
  /*    while (out!=nullptr)
     {

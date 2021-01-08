@@ -1,5 +1,5 @@
 
-#include "../code58/solution.hpp"
+#include "../code65/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,12 +8,16 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    vector<vector<int>> nums = {{1,3},{6,5}};
-    //vector<int> nums = {1};
-    //vector<int> out =  test->canJump(nums);
-    vector<int> newV = {2,5};
-    string s = "a ";
-    cout << test->lengthOfLastWord(s) << endl;
+    string in = argv[1];
+    //vector<vector<int>> in = {{1,2,3},{4,5,6}};//,{4,2,1}};
+    cout << test->isNumber(in) << endl;
+
+ /*    while (out!=nullptr)
+    {
+        cout << out->val << "->";
+        out = out->next;
+    }
+    cout << endl; */
 
 /*     for (int i = 0; i < out.size(); i++)
     {
@@ -22,7 +26,7 @@ int main(int argc, char* argv[])
         {
             cout << out[i][j] << "," ; 
         }
-        cout << endl; 
+        cout << endl;
     }  */
     
     cout << (double)(clock() - start_time)/CLOCKS_PER_SEC << endl;

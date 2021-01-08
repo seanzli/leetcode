@@ -1,5 +1,5 @@
 
-#include "../code60/solution.hpp"
+#include "../code61/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,11 +8,16 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    //vector<vector<int>> nums = {{1,2,3},{4,5,6},{7,8,9}};
-    //vector<vector<int>> nums = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
-    string out =  test->getPermutation(9,9);
+    //ListNode *node = new ListNode(1, new ListNode(2,new ListNode(3, new ListNode(4, new ListNode(5)))));
+    ListNode *node = new ListNode();
+    ListNode *out =  test->rotateRight(nullptr,4);
 
-    cout << out << endl;
+    while (out!=nullptr)
+    {
+        cout << out->val << "->";
+        out = out->next;
+    }
+    cout << endl;
 
 /*     for (int i = 0; i < out.size(); i++)
     {

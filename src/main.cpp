@@ -1,5 +1,5 @@
 
-#include "../code61/solution.hpp"
+#include "../code62/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,16 +8,14 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    //ListNode *node = new ListNode(1, new ListNode(2,new ListNode(3, new ListNode(4, new ListNode(5)))));
-    ListNode *node = new ListNode();
-    ListNode *out =  test->rotateRight(nullptr,4);
+    cout << test->uniquePaths(10,10) << endl;
 
-    while (out!=nullptr)
+ /*    while (out!=nullptr)
     {
         cout << out->val << "->";
         out = out->next;
     }
-    cout << endl;
+    cout << endl; */
 
 /*     for (int i = 0; i < out.size(); i++)
     {

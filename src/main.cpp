@@ -1,5 +1,5 @@
 
-#include "../code59/solution.hpp"
+#include "../code60/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -10,9 +10,11 @@ int main(int argc, char* argv[])
 
     //vector<vector<int>> nums = {{1,2,3},{4,5,6},{7,8,9}};
     //vector<vector<int>> nums = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
-    vector<vector<int>> out =  test->generateMatrix(7);
+    string out =  test->getPermutation(9,9);
 
-    for (int i = 0; i < out.size(); i++)
+    cout << out << endl;
+
+/*     for (int i = 0; i < out.size(); i++)
     {
         //cout << "/////" << endl;
         for (int j = 0; j < out[i].size(); j++)
@@ -20,7 +22,7 @@ int main(int argc, char* argv[])
             cout << out[i][j] << "," ; 
         }
         cout << endl;
-    } 
+    }  */
     
     cout << (double)(clock() - start_time)/CLOCKS_PER_SEC << endl;
 

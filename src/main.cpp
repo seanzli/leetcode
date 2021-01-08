@@ -1,5 +1,5 @@
 
-#include "../code54/solution.hpp"
+#include "../code59/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -9,18 +9,18 @@ int main(int argc, char* argv[])
     Solution *test = new Solution();
 
     //vector<vector<int>> nums = {{1,2,3},{4,5,6},{7,8,9}};
-    vector<vector<int>> nums = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
-    vector<int> out =  test->spiralOrder(nums);
+    //vector<vector<int>> nums = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+    vector<vector<int>> out =  test->generateMatrix(7);
 
     for (int i = 0; i < out.size(); i++)
     {
         //cout << "/////" << endl;
-        //for (int j = 0; j < out[i].size(); j++)
+        for (int j = 0; j < out[i].size(); j++)
         {
-            cout << out[i] << "," ; 
+            cout << out[i][j] << "," ; 
         }
+        cout << endl;
     } 
-    cout << endl;
     
     cout << (double)(clock() - start_time)/CLOCKS_PER_SEC << endl;
 

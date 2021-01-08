@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    string in = argv[1];
+    string in = "+3. e04116";
     //vector<vector<int>> in = {{1,2,3},{4,5,6}};//,{4,2,1}};
     cout << test->isNumber(in) << endl;
 

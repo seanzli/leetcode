@@ -13,63 +13,39 @@ using namespace std;
 class Solution {
 public:
     bool isNumber(string s) {
-        vector<string> split_s;
-        s = deleteSpace(s);
-        SplitString(s, split_s, "e");
-        if (split_s.size()>2)
-            return false;
+        int i=0;
+        //跳过开头的空字符
+        while(s[i]==' ')++i;
+        //跳过正负号
+        if(s[i]=='+'||s[i]=='-')++i;
+        //匹配一个整数
+        bool match1 = matchInt(s, i);
+        //如果匹配到了‘.’，在匹配一个整数
+        if(s[i]=='.'){
+            i++;
+            bool match2 = matchInt(s, i);
+            //‘.’前后至少要有一个整数
+            if(!match1 && !match2)return false;
+        }else
+            //如果没有'.'，至少应有一个整数
+            if(!match1)return false;
         
-        if (!isNumberWithoutE(split_s[0], false))
-            return false;
-        if (split_s.size()==2)
-        {
-            if (!isNumberWithoutE(split_s[1], true))
-                return false;
+        //e后面应该有一个整数
+        if(s[i]=='e'){
+            ++i;
+            if(s[i]=='+' || s[i]=='-')++i;
+            if(!matchInt(s, i))return false;
         }
-        return true;
-    }
-    bool isNumberWithoutE(string s, bool got_dot){
-        if (s.size()<1)
-            return false;
+        //跳过末尾的空格。
+        while(s[i]==' ')++i;
+        //此时字符串应该到了末尾如果没有，返回false。
+        return !s[i];
         
-        for (int i = 0; i < s.size(); i++)
-        {
-            if (((s[i]=='+')||(s[i]=='-')) && (i!=0))
-                return false;
-            else if (s[i]=='.')
-            {
-                if (got_dot)
-                    return false;
-                got_dot = true;
-            }
-            else if ((s[i]>='0') && (s[i]<='9'))
-                continue;
-            else
-                return false;
-        }
-        return true;
     }
-    string deleteSpace(string &s){
-        vector<string> out;
-        SplitString(s, out, " ");
-        s.clear(); 
-        for (int i = 0; i < out.size(); i++)
-            s+=out[i];
-        return s;
-    }
-    void SplitString(const string& s, vector<std::string>& v, std::string c)
-    {
-        std::string::size_type pos1, pos2;
-        pos2 = s.find(c);
-        pos1 = 0;
-        while(std::string::npos != pos2)
-        {
-            v.push_back(s.substr(pos1, pos2-pos1));
-        
-            pos1 = pos2 + c.size();
-            pos2 = s.find(c, pos1);
-        }
-        if(pos1 != s.length())
-            v.push_back(s.substr(pos1));
+
+    bool matchInt(string& s, int& i){
+        int start = i;
+        while(s[i]>='0' && s[i]<='9')++i;
+        return start!=i;
     }
 };

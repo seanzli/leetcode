@@ -1,5 +1,5 @@
 
-#include "../code69/solution.hpp"
+#include "../code70/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -12,18 +12,11 @@ int main(int argc, char* argv[])
     //vector<vector<int>> in = {{1,2,3},{4,5,6}};//,{4,2,1}};
     //vector<string> words = {"Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"};
 
-    for (int i = 0; i < INT_MAX; i++)
-    {
-        int cur = sqrt(i);
-        if (cur == test->mySqrt(i))
-            cout << "i = "<< i << ", true" << endl;
-        else
-        {
-            cout << "i = "<< i << ", false" << endl;
-            break;
-        }
-    }
-    
+for (int i = 1; i < 46; i++)
+{
+    cout <<i<<"->"<< test->climbStairs(i) << endl;
+}
+
 
  /*    while (out!=nullptr)
     {

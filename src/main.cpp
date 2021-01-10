@@ -1,5 +1,5 @@
 
-#include "../code71/solution.hpp"
+#include "../code72/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -12,8 +12,9 @@ int main(int argc, char* argv[])
     //vector<vector<int>> in = {{1,2,3},{4,5,6}};//,{4,2,1}};
     //vector<string> words = {"Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"};
 
-    string s = "/../";
-    cout<< test->simplifyPath(s)<<endl;
+    string word1 = "horse";
+    string word2 = "ros";
+    cout<< test->minDistance(word1, word2)<<endl;
     
  /*    while (out!=nullptr)
     {

@@ -1,5 +1,5 @@
 
-#include "../code70/solution.hpp"
+#include "../code71/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -12,12 +12,9 @@ int main(int argc, char* argv[])
     //vector<vector<int>> in = {{1,2,3},{4,5,6}};//,{4,2,1}};
     //vector<string> words = {"Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"};
 
-for (int i = 1; i < 46; i++)
-{
-    cout <<i<<"->"<< test->climbStairs(i) << endl;
-}
-
-
+    string s = "/../";
+    cout<< test->simplifyPath(s)<<endl;
+    
  /*    while (out!=nullptr)
     {
         cout << out->val << "->";

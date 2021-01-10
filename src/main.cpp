@@ -1,5 +1,5 @@
 
-#include "../code76/solution.hpp"
+#include "../code77/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -12,12 +12,8 @@ int main(int argc, char* argv[])
     //vector<vector<int>> in = {{1,2,3},{4,5,6}};//,{4,2,1}};
     //vector<string> words = {"Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"};
 
-    string s = "ADOBECODEBANC";
-    string t = "ABC";
 
-    cout << s.find(t[1]) <<endl;
-
-    cout << test->minWindow(s,t) << endl;
+    vector<vector<int>> out = test->combine(4,2);
     
  /*    while (out!=nullptr)
     {
@@ -26,14 +22,14 @@ int main(int argc, char* argv[])
     }
     cout << endl; */
 
-/*     for (int i = 0; i < in.size(); i++)
+     for (int i = 0; i < out.size(); i++)
     {
-       // for (int j = 0; j < in[i].size(); j++)
+        for (int j = 0; j < out[i].size(); j++)
         {
-            cout << in[i] << ",";
+            cout << out[i][j] << ",";
         }
+        cout << endl; 
     }
-    cout << endl; */
      
     cout << (double)(clock() - start_time)/CLOCKS_PER_SEC << endl;
 

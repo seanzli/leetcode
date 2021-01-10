@@ -1,5 +1,5 @@
 
-#include "../code77/solution.hpp"
+#include "../code78/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -12,8 +12,8 @@ int main(int argc, char* argv[])
     //vector<vector<int>> in = {{1,2,3},{4,5,6}};//,{4,2,1}};
     //vector<string> words = {"Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"};
 
-
-    vector<vector<int>> out = test->combine(4,2);
+    vector<int> in = {1,2,3};
+    vector<vector<int>> out = test->subsets(in);
     
  /*    while (out!=nullptr)
     {

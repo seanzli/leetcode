@@ -1,5 +1,5 @@
 
-#include "../code78/solution.hpp"
+#include "../code79/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -11,10 +11,12 @@ int main(int argc, char* argv[])
     //string in = "+3. e04116";
     //vector<vector<int>> in = {{1,2,3},{4,5,6}};//,{4,2,1}};
     //vector<string> words = {"Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"};
-
-    vector<int> in = {1,2,3};
-    vector<vector<int>> out = test->subsets(in);
     
+    //vector<vector<char>> in = {{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
+    vector<vector<char>> in = {{'C','A','A'},{'A','A','A'},{'B','C','D'}};
+    string word = "AAB";
+    cout << test->exist(in, word) << endl;
+    string word1 = "SEE";
  /*    while (out!=nullptr)
     {
         cout << out->val << "->";
@@ -22,14 +24,14 @@ int main(int argc, char* argv[])
     }
     cout << endl; */
 
-     for (int i = 0; i < out.size(); i++)
+/*      for (int i = 0; i < out.size(); i++)
     {
         for (int j = 0; j < out[i].size(); j++)
         {
             cout << out[i][j] << ",";
         }
         cout << endl; 
-    }
+    } */
      
     cout << (double)(clock() - start_time)/CLOCKS_PER_SEC << endl;
 

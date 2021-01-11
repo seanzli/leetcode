@@ -1,5 +1,5 @@
 
-#include "../code81/solution.hpp"
+#include "../code82/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,28 +8,23 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    //string in = "+3. e04116";
-    //vector<vector<int>> in = {{1,2,3},{4,5,6}};//,{4,2,1}};
-    //vector<string> words = {"Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"};
-    
-    //vector<vector<char>> in = {{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
-    /* vector<vector<char>> in = {{'C','A','A'},{'A','A','A'},{'B','C','D'}};
-    string word = "AAB"; */
-    vector<int> nums = {0};
-    
-    cout << test->search(nums, 0) << endl;
-    for (int i = 0; i < nums.size(); i++)
+    vector<int> nums = {1,1,2,2,2};
+    ListNode *in, *cur = new ListNode(nums[0]), *out;
+    in = cur;
+    for (int i = 1; i < nums.size(); i++)
     {
-        cout << nums[i] << ",";
+        cur->next = new ListNode(nums[i]);
+        cur = cur->next;
     }
-    cout <<endl;
+
+    out = test->deleteDuplicates(in);
     
- /*    while (out!=nullptr)
+    while (out!=nullptr)
     {
         cout << out->val << "->";
         out = out->next;
     }
-    cout << endl; */
+    cout << endl;
 
 /*      for (int i = 0; i < out.size(); i++)
     {

@@ -1,5 +1,5 @@
 
-#include "../code83/solution.hpp"
+#include "../code84/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,23 +8,25 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    vector<int> nums = {1,1,1,2,2,2,3};
+/*     vector<int> nums = {1,1,1,2,2,2,3};
     ListNode *in, *cur = new ListNode(nums[0]), *out;
     in = cur;
     for (int i = 1; i < nums.size(); i++)
     {
         cur->next = new ListNode(nums[i]);
         cur = cur->next;
-    }
+    } */
+    vector<int> nums = {2,4};
 
-    out = test->deleteDuplicates(in);
+
+    cout << test->largestRectangleArea(nums) << endl;
     
-    while (out!=nullptr)
+/*     while (out!=nullptr)
     {
         cout << out->val << "->";
         out = out->next;
     }
-    cout << endl;
+    cout << endl; */
 
 /*      for (int i = 0; i < out.size(); i++)
     {

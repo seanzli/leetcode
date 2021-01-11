@@ -1,5 +1,5 @@
 
-#include "../code86/solution.hpp"
+#include "../code88/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,29 +8,17 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    vector<int> nums = {2,1};
+    vector<int> nums1 = {2,0};
+    vector<int> nums2 = {1};
 
-    ListNode *in, *cur = new ListNode(nums[0]);
-    in = cur;
-    for (int i = 1; i < nums.size(); i++)
+    test->merge(nums1, 1, nums2, 1);
+    for (int i = 0; i < 2; i++)
     {
-        cur->next = new ListNode(nums[i]);
-        cur = cur->next;
-    }
-    cur = in;
-    while (cur!=nullptr)
-    {
-        cout << cur->val << "->";
-        cur = cur->next;
+        cout << nums1[i] << ",";
     }
     cout << endl;
-    ListNode* out = test->partition(in,2);
+    
 
-    while(out){
-        cout << out->val << "->";
-        out = out->next;
-    }
-    cout << endl;
 
     cout << (double)(clock() - start_time)/CLOCKS_PER_SEC << endl;
 

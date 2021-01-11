@@ -1,5 +1,5 @@
 
-#include "../code82/solution.hpp"
+#include "../code83/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    vector<int> nums = {1,1,2,2,2};
+    vector<int> nums = {1,1,1,2,2,2,3};
     ListNode *in, *cur = new ListNode(nums[0]), *out;
     in = cur;
     for (int i = 1; i < nums.size(); i++)

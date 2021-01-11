@@ -1,5 +1,5 @@
 
-#include "../code84/solution.hpp"
+#include "../code85/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -17,9 +17,10 @@ int main(int argc, char* argv[])
         cur = cur->next;
     } */
     vector<int> nums = {2,4};
+    //vector<vector<char>> matrix = {{'1','0','1','0','0'},{'1','0','1','1','1'},{'1','1','1','1','1'},{'1','0','0','1','0'}};
+    //vector<vector<char>> matrix = {{}};
+    vector<vector<char>> matrix = {{'0','0','0','0','0','0','1'},{'0','0','0','0','1','1','1'},{'1','1','1','1','1','1','1'},{'0','0','0','1','1','1','1'}};
 
-
-    cout << test->largestRectangleArea(nums) << endl;
     
 /*     while (out!=nullptr)
     {
@@ -28,14 +29,15 @@ int main(int argc, char* argv[])
     }
     cout << endl; */
 
-/*      for (int i = 0; i < out.size(); i++)
+    for (int i = 0; i < matrix.size(); i++)
     {
-        for (int j = 0; j < out[i].size(); j++)
+        for (int j = 0; j < matrix[i].size(); j++)
         {
-            cout << out[i][j] << ",";
+            cout << matrix[i][j] << ",";
         }
         cout << endl; 
-    } */
+    } 
+    cout << test->maximalRectangle(matrix) << endl;
      
     cout << (double)(clock() - start_time)/CLOCKS_PER_SEC << endl;
 

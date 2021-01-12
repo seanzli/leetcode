@@ -1,5 +1,5 @@
 
-#include "../code89/solution.hpp"
+#include "../code90/solution.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])
@@ -8,16 +8,19 @@ int main(int argc, char* argv[])
     start_time = clock();
     Solution *test = new Solution();
 
-    vector<int> nums1 = {2,0};
-    vector<int> nums2 = {1};
+    vector<int> nums1 = {1,2,1};
 
-    vector<int> out = test->grayCode(2);
+
+    vector<vector<int>> out = test->subsetsWithDup(nums1);
 
     for (int i = 0; i < out.size(); i++)
     {
-        cout << out[i] << ", " << test->dec2bin(out[i]) << endl;
+        for (int j = 0; j < out[i].size(); j++)
+        {
+            cout << out[i][j] << ",";
+        }
+        cout << endl;
     }
-    cout << endl;
     cout << (double)(clock() - start_time)/CLOCKS_PER_SEC << endl;
 
     return 0;

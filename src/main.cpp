@@ -1,11 +1,11 @@
 
-#include "../code92/solution.hpp"
+#include "../code93/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> nums1 = {1,2,3,4,5};
+/*     vector<int> nums1 = {1,2,3,4,5};
     ListNode *in = new ListNode(nums1[0]);
     ListNode *cur = nullptr;
     cur = in;
@@ -13,17 +13,21 @@ int main(int argc, char* argv[])
     {
         cur->next = new ListNode(nums1[i]);
         cur = cur->next;
-    }
-    //ListNode *in = new ListNode(1,new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
-    
-    ListNode *out = test->reverseBetween(in, 1,2);
+    } */
+    string s = "25525511135";
+    vector<string> out = test->restoreIpAddresses(s);
 
-    while (out)
+    for (int i = 0; i < out.size(); i++)
+    {
+        cout << out[i] << endl;
+    }
+    
+/*     while (out)
     {
         cout << out->val << "->" ;
         out = out->next;
     }
-    cout << endl;
+    cout << endl; */
 
     return 0;
 }

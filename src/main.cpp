@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
 
     vector<int> nums1 = {1,2,1};
 
-    string s= "1212";
+    string s= "2020";
     cout << test->numDecodings(s) << endl;
 
 /*     for (int i = 0; i < out.size(); i++)

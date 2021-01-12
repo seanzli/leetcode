@@ -15,7 +15,7 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* reverseBetween(ListNode* head, int m, int n) {
+/*     ListNode* reverseBetween(ListNode* head, int m, int n) {
         ListNode *pre=nullptr, *left, *right, *next = nullptr, *dummy = new ListNode(0);
         dummy->next = head;
         left = head;
@@ -47,5 +47,25 @@ public:
             dummy->next = left;
         }
         return dummy->next;
+    } */
+    ListNode* successor = nullptr;
+    ListNode* reverseBetween(ListNode* head, int m, int n) {
+        if (m==1)
+            return reverseN(head,n);
+
+        head->next = reverseBetween(head->next, m-1, n-1);
+        return head;
+    }
+
+    ListNode* reverseN(ListNode* head, int n){
+        if (n==1)
+        {
+            successor = head->next;
+            return head;
+        }
+        ListNode* last = reverseN(head->next, n-1);
+        head->next->next = head;
+        head->next = successor;
+        return last;
     }
 };

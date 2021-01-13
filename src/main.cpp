@@ -1,5 +1,5 @@
 
-#include "../code94/solution.hpp"
+#include "../code97/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -14,19 +14,16 @@ int main(int argc, char* argv[])
         cur->next = new ListNode(nums1[i]);
         cur = cur->next;
     } */
-    vector<int> nums = {1,INT_MIN,2,3};
-    TreeNode *in = new TreeNode(nums[0]);
-    for (int i = 0; i < nums.size(); i++)
-    {
-        
-    }
+    string s1 = "aabcc";
+    string s2 = "dbbca";
+    string s3 = "aadbbcbcac";
     
-    vector<int> out = test->inorderTraversal(in);
+    cout << test->isInterleave(s1, s2, s3) << endl;
 
-    for (int i = 0; i < out.size(); i++)
+/*     for (int i = 0; i < out.size(); i++)
     {
         cout << out[i] << endl;
-    }
+    } */
     
 /*     while (out)
     {

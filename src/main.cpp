@@ -1,5 +1,5 @@
 
-#include "../code97/solution.hpp"
+#include "../code95/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -18,7 +18,8 @@ int main(int argc, char* argv[])
     string s2 = "dbbca";
     string s3 = "aadbbcbcac";
     
-    cout << test->isInterleave(s1, s2, s3) << endl;
+    vector<TreeNode*> out = test->generateTrees(3) ;
+    int a = 1;
 
 /*     for (int i = 0; i < out.size(); i++)
     {

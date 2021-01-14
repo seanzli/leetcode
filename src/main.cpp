@@ -1,5 +1,5 @@
 
-#include "../code120/solution.hpp"
+#include "../code122/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -15,8 +15,8 @@ int main(int argc, char* argv[])
         cur = cur->next;
     } */
     //vector<vector<int>> in = {{2},{3,4},{6,5,7},{4,1,8,3}};
-    vector<vector<int>> in = {{-10}};
-    cout << test->minimumTotal(in) <<endl;
+    vector<int> in = {7,1,5,3,6,4};
+    cout << test->maxProfit(in) <<endl;
 
 /*     for (int i = 0; i < out.size(); i++)
     {

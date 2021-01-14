@@ -1,5 +1,5 @@
 
-#include "../code81-100/code100/solution.hpp"
+#include "../code101/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -19,10 +19,10 @@ int main(int argc, char* argv[])
     string s3 = "aadbbcbcac";
     
     TreeNode *root = new TreeNode(1);
-    root->left = new TreeNode(3);
+    root->left = new TreeNode(2);
     root->left->right = new TreeNode(2);
     
-    cout << test->isSameTree(root, root) ;
+    cout << test->isSymmetric(root)<<endl;
     int a = 1;
 
 /*     for (int i = 0; i < out.size(); i++)

@@ -1,5 +1,5 @@
 
-#include "../code81-100/code99/solution.hpp"
+#include "../code81-100/code100/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
     root->left = new TreeNode(3);
     root->left->right = new TreeNode(2);
     
-    test->recoverTree(root) ;
+    cout << test->isSameTree(root, root) ;
     int a = 1;
 
 /*     for (int i = 0; i < out.size(); i++)

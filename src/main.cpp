@@ -1,5 +1,5 @@
 
-#include "../code115/solution.hpp"
+#include "../code118/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -17,12 +17,17 @@ int main(int argc, char* argv[])
     string s1 = "rabbbit";
     string s2 = "rabbit";
 
-    cout << test->numDistinct(s1, s2)<<endl;
+    vector<vector<int>> out = test->generate(5);//, s2)<<endl;
 
-/*     for (int i = 0; i < out.size(); i++)
+    for (int i = 0; i < out.size(); i++)
     {
-        cout << out[i] << endl;
-    } */
+        for (int j = 0; j < out[i].size(); j++)
+        {
+            cout << out[i][j] << ",";
+        }
+        
+        cout << endl;
+    }
     
 /*     while (out)
     {

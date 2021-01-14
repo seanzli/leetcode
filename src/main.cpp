@@ -1,5 +1,5 @@
 
-#include "../code95/solution.hpp"
+#include "../code81-100/code99/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -18,7 +18,11 @@ int main(int argc, char* argv[])
     string s2 = "dbbca";
     string s3 = "aadbbcbcac";
     
-    vector<TreeNode*> out = test->generateTrees(3) ;
+    TreeNode *root = new TreeNode(1);
+    root->left = new TreeNode(3);
+    root->left->right = new TreeNode(2);
+    
+    test->recoverTree(root) ;
     int a = 1;
 
 /*     for (int i = 0; i < out.size(); i++)

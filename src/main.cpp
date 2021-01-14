@@ -1,5 +1,5 @@
 
-#include "../code118/solution.hpp"
+#include "../code120/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -14,12 +14,11 @@ int main(int argc, char* argv[])
         cur->next = new ListNode(nums1[i]);
         cur = cur->next;
     } */
-    string s1 = "rabbbit";
-    string s2 = "rabbit";
+    //vector<vector<int>> in = {{2},{3,4},{6,5,7},{4,1,8,3}};
+    vector<vector<int>> in = {{-10}};
+    cout << test->minimumTotal(in) <<endl;
 
-    vector<vector<int>> out = test->generate(5);//, s2)<<endl;
-
-    for (int i = 0; i < out.size(); i++)
+/*     for (int i = 0; i < out.size(); i++)
     {
         for (int j = 0; j < out[i].size(); j++)
         {
@@ -27,7 +26,7 @@ int main(int argc, char* argv[])
         }
         
         cout << endl;
-    }
+    } */
     
 /*     while (out)
     {

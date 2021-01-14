@@ -1,5 +1,5 @@
 
-#include "../code101/solution.hpp"
+#include "../code115/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -14,16 +14,10 @@ int main(int argc, char* argv[])
         cur->next = new ListNode(nums1[i]);
         cur = cur->next;
     } */
-    string s1 = "aabcc";
-    string s2 = "dbbca";
-    string s3 = "aadbbcbcac";
-    
-    TreeNode *root = new TreeNode(1);
-    root->left = new TreeNode(2);
-    root->left->right = new TreeNode(2);
-    
-    cout << test->isSymmetric(root)<<endl;
-    int a = 1;
+    string s1 = "rabbbit";
+    string s2 = "rabbit";
+
+    cout << test->numDistinct(s1, s2)<<endl;
 
 /*     for (int i = 0; i < out.size(); i++)
     {

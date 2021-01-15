@@ -1,5 +1,5 @@
 
-#include "../code123/solution.hpp"
+#include "../code125/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -15,8 +15,9 @@ int main(int argc, char* argv[])
         cur = cur->next;
     } */
     //vector<vector<int>> in = {{2},{3,4},{6,5,7},{4,1,8,3}};
-    vector<int> in = {3,3,5,0,0,3,1,4};
-    cout << test->maxProfit(in) <<endl;
+    //vector<int> in = {3,3,5,0,0,3,1,4};
+    string in  = "0P";
+    cout << test->isPalindrome(in) <<endl;
 
 /*     for (int i = 0; i < out.size(); i++)
     {

@@ -1,5 +1,5 @@
 
-#include "../code128/solution.hpp"
+#include "../code129/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -17,8 +17,13 @@ int main(int argc, char* argv[])
     //vector<vector<int>> in = {{2},{3,4},{6,5,7},{4,1,8,3}};
     //vector<int> in = {3,3,5,0,0,3,1,4};
 
-    vector<int> in = {1,2,0,1};
-    cout << test->longestConsecutive(in) << endl;
+    //vector<int> in = {1,2,0,1};
+    TreeNode *root = new TreeNode(4);
+    root->left = new TreeNode(9);
+    root->right = new TreeNode(0);
+    root->left->left = new TreeNode(5);
+    root->left->right = new TreeNode(1);
+    cout << test->sumNumbers(root) << endl;
 
 /*     for (int i = 0; i < out.size(); i++)
     {

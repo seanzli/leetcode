@@ -1,5 +1,5 @@
 
-#include "../code102/solution.hpp"
+#include "../code103/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -7,10 +7,12 @@ int main(int argc, char* argv[])
 
     TreeNode *in = new TreeNode(3);
     in->left = new TreeNode(9);
+    in->left->left = new TreeNode(1);
+    in->left->right = new TreeNode(2);
     in->right = new TreeNode(20);
     in->right->left = new TreeNode(15);
     in->right->right = new TreeNode(7);
-    vector<vector<int>> out =  test->levelOrder(in);
+    vector<vector<int>> out =  test->zigzagLevelOrder(in);
 
     for (int i = 0; i < out.size(); i++)
     {

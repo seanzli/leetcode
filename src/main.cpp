@@ -1,5 +1,5 @@
 
-#include "../code111/solution.hpp"
+#include "../code114/solution.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
     in->right->left = new TreeNode(15);
     in->right->right = new TreeNode(7);
 
-    cout << test->minDepth(in) << endl;
+    test->flatten(in);
 
 /*     for (int i = 0; i < out.size(); i++)
     {

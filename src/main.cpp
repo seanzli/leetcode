@@ -1,11 +1,16 @@
 
-#include "../code110/solution.hpp"
+#include "../code111/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-    ListNode *in = new ListNode(-10, new ListNode(-3, new ListNode(0, new ListNode(5, new ListNode(9)))));
-    TreeNode* out =  test->sortedListToBST(in);
+    TreeNode *in = new TreeNode(3);
+    in->left = new TreeNode(9);
+    in->right = new TreeNode(20);
+    in->right->left = new TreeNode(15);
+    in->right->right = new TreeNode(7);
+
+    cout << test->minDepth(in) << endl;
 
 /*     for (int i = 0; i < out.size(); i++)
     {

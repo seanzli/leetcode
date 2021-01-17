@@ -1,18 +1,17 @@
 
-#include "../code116/solution.hpp"
+#include "../code124/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-    Node *in = new Node(1);
-    in->left = new Node(2);
-    in->left->left = new Node(4);
-    in->left->right = new Node(5);
-    in->right = new Node(3);
-    in->right->left = new Node(6);
-    in->right->right = new Node(7);
 
-    test->connect(in);
+    TreeNode *in = new TreeNode(2);
+    in->left = new TreeNode(-1);
+/*     in->right = new TreeNode(20);
+    in->right->left = new TreeNode(15);
+    in->right->right = new TreeNode(7); */
+
+    cout << test->maxPathSum(in) << endl;
 
 /*     for (int i = 0; i < out.size(); i++)
     {

@@ -1,14 +1,17 @@
 
-#include "../code139/solution.hpp"
+#include "../code141/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    string s = "applepenapple";
-    vector<string> dict = {"apple", "pen"};
+    ListNode*in = new ListNode(3);
+    in->next = new ListNode(2);
+    in->next->next = new ListNode(0);
+    in->next->next->next = new ListNode(-4);
+    in->next->next->next->next = in->next->next;
 
-    cout << test->wordBreak(s, dict) << endl;
+    cout << test->hasCycle(in) << endl;
 
 /*     for (int i = 0; i < out.size(); i++)
     {

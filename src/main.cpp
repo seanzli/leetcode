@@ -1,14 +1,14 @@
 
-#include "../code134/solution.hpp"
+#include "../code139/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> gas = {2,3,4};
-    vector<int> cost = {3,4,3};
+    string s = "applepenapple";
+    vector<string> dict = {"apple", "pen"};
 
-    cout << test->canCompleteCircuit(gas, cost) << endl;
+    cout << test->wordBreak(s, dict) << endl;
 
 /*     for (int i = 0; i < out.size(); i++)
     {

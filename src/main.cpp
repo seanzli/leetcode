@@ -1,22 +1,17 @@
 
-#include "../code143/solution.hpp"
+#include "../code150/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    ListNode*in = new ListNode(3);
-    in->next = new ListNode(2);
-    in->next->next = new ListNode(0);
-    in->next->next->next = new ListNode(-4);
-    in->next->next->next->next = new ListNode(5);
+    vector<string> s = {"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"};
+    cout << test->evalRPN(s) << endl;
 
-    test->reorderList(in);
-
-    while (in){
+    /* while (in){
         cout << in->val << "->";
         in = in->next;
     }
-    cout << endl;
+    cout << endl; */
     return 0;
 }

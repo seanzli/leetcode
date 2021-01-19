@@ -1,13 +1,12 @@
 
-#include "../code165/solution.hpp"
+#include "../code168/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    string v1 = "1.01", v2 = "1.001";
-
-    cout << test->compareVersion(v1, v2) << endl;
+    int a = 701;
+    cout << test->convertToTitle(a) << endl;
 
     /* while (in){
         cout << in->val << "->";

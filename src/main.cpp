@@ -1,13 +1,13 @@
 
-#include "../code155/solution.hpp"
+#include "../code165/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> in = {-2,0,-1};
-    string s = "  hello world  ";
-    cout << test->maxProduct(in) << endl;
+    string v1 = "1.01", v2 = "1.001";
+
+    cout << test->compareVersion(v1, v2) << endl;
 
     /* while (in){
         cout << in->val << "->";

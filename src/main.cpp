@@ -1,12 +1,13 @@
 
-#include "../code151/solution.hpp"
+#include "../code152/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
+    vector<int> in = {-2,0,-1};
     string s = "  hello world  ";
-    cout << test->reverseWords(s) << endl;
+    cout << test->maxProduct(in) << endl;
 
     /* while (in){
         cout << in->val << "->";

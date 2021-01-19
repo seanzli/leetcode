@@ -5,6 +5,7 @@
 #include <stack>
 #include <regex>
 #include <limits.h>
+#include <algorithm>
 
 using namespace std;
 

@@ -1,12 +1,13 @@
 
-#include "../code168/solution.hpp"
+#include "../code171/solution.hpp"
+
+
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    int a = 701;
-    cout << test->convertToTitle(a) << endl;
+    cout << test->titleToNumber("AB") << endl;
 
     /* while (in){
         cout << in->val << "->";

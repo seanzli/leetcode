@@ -1,5 +1,5 @@
 
-#include "../code171/solution.hpp"
+#include "../code174/solution.hpp"
 
 
 
@@ -7,7 +7,9 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    cout << test->titleToNumber("AB") << endl;
+    vector<vector<int>> in = {{1,-3,3},{0,-2,0},{-3,-3,-3}};
+
+    cout << test->calculateMinimumHP(in) << endl;
 
     /* while (in){
         cout << in->val << "->";

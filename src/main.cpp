@@ -1,5 +1,5 @@
 
-#include "../code190/solution.hpp"
+#include "../code200/solution.hpp"
 
 
 
@@ -7,9 +7,14 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> in = {999999998,999999997,999999999};
+    vector<vector<char>> grid = {
+        {'1','1','0','1','0'},
+        {'1','1','0','1','0'},
+        {'1','1','0','0','0'},
+        {'0','0','0','0','0'},
+    };
 
-    cout << test->reverseBits(in) << endl;
+    cout << test->numIslands(grid) << endl;
 
     /* while (in){
         cout << in->val << "->";

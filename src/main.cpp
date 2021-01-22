@@ -1,5 +1,5 @@
 
-#include "../code213/solution.hpp"
+#include "../code214/solution.hpp"
 
 
 
@@ -7,8 +7,8 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> in = {2,3,2};
-    cout << test->rob(in) << endl;
+    string s = "abcd";
+    cout << test->shortestPalindrome(s) << endl;
 
     /* while (in){
         cout << in->val << "->";

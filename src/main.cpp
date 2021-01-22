@@ -1,5 +1,5 @@
 
-#include "../code214/solution.hpp"
+#include "../code215/solution.hpp"
 
 
 
@@ -7,8 +7,8 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    string s = "abcd";
-    cout << test->shortestPalindrome(s) << endl;
+    vector<int> in = {3,2,1,5,6,4};
+    cout << test->findKthLargest(in,2) << endl;
 
     /* while (in){
         cout << in->val << "->";

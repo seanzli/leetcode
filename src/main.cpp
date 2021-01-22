@@ -1,5 +1,5 @@
 
-#include "../code200/solution.hpp"
+#include "../code209/solution.hpp"
 
 
 
@@ -14,7 +14,8 @@ int main(int argc, char* argv[])
         {'0','0','0','0','0'},
     };
 
-    cout << test->numIslands(grid) << endl;
+    vector<int> in = {2,3,1,2,4,3};
+    cout << test->minSubArrayLen(7,in) << endl;
 
     /* while (in){
         cout << in->val << "->";

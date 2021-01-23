@@ -1,5 +1,5 @@
 
-#include "../code1695/solution.hpp"
+#include "../code941/solution.hpp"
 
 
 
@@ -7,8 +7,8 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> in = {5,2,1,2,5,2,1,2,5};
-    cout << test->maximumUniqueSubarray(in) << endl;
+    vector<int> in = {3,5,5};
+    cout << test->validMountainArray(in) << endl;
 
     /* while (in){
         cout << in->val << "->";

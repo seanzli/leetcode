@@ -8,7 +8,7 @@ using namespace std;
 class Solution {
 public:
     vector<vector<int>> getSkyline(vector<vector<int>>& buildings) {
-        long max_idx, min_idx;
+        int max_idx, min_idx;
         getMax(buildings, min_idx, max_idx);
         vector<int> sky(max_idx+1,0);
         int idx = 0; // 
@@ -28,7 +28,7 @@ public:
         return out;
     }
 
-    void getMax(vector<vector<int>>& buildings, long &min_idx, long &max_idx){
+    void getMax(vector<vector<int>>& buildings, int &min_idx, int &max_idx){
         min_idx = buildings[0][0];
         max_idx = INT_MIN;
         for (vector<int> i : buildings)

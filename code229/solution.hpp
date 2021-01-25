@@ -8,57 +8,35 @@ using namespace std;
 class Solution {
 public:
     vector<int> majorityElement(vector<int>& nums) {
-        int len = nums.size();
-        vector<int>res, cands, cnts;
-        if(len == 0){//没有元素，直接返回空数组
-            return res;
-        }
-        cands.assign(2, nums[0]);
-        cnts.assign(2, 0);
-        //第1阶段 成对抵销
-        for(auto num: nums){
-            bool flag = false;
-            for(int i = 0; i < cands.size(); ++i){
-                if(num == cands[i]){
-                    ++cnts[i];
-                    flag = true;
-                    break;
-                }
+        int first_Candidate = 0;
+        int second_Candidate = 0;
+        int num1 = 0;
+        int num2 = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] == first_Candidate) num1 ++;
+            else if (nums[i] == second_Candidate) num2 ++;
+            else if (num1 == 0) {
+                first_Candidate = nums[i];
+                num1 ++;
             }
-            if(!flag){
-                bool flag2 = false;
-                for(int j = 0; j < cands.size(); ++j){
-                    if(cnts[j] == 0){
-                        flag2 = true;
-                        cands[j] = num;
-                        cnts[j]++;
-                    }
-                }
-                if(!flag2){
-                    for(int j = 0; j < cnts.size(); ++j){
-                        --cnts[j];
-                    }
-                }
+            else if (num2 == 0) {
+                second_Candidate = nums[i];
+                num2 ++;
+            }
+            else {
+                num1 --;
+                num2 --;
             }
         }
-
-        //第2阶段 计数 数目要超过三分之一
-        cnts[0] = cnts[1] = 0;
-        if(cands[0] == cands[1])
-            cands.pop_back();
-        for(auto num:nums){
-            for(int i = 0; i < cands.size(); ++i){
-                if(cands[i] == num){
-                    ++cnts[i];
-                    break;
-                }
-            }
+        num1 = 0;
+        num2 = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] == first_Candidate) num1 ++;
+            if (nums[i] == second_Candidate) num2 ++;
         }
-        for(int i = 0; i < cands.size(); ++i){
-            if(cnts[i] > len / 3){
-                res.push_back(cands[i]);
-            }
-        }
-        return res;
+        vector<int> result;
+        if (num1 > nums.size() / 3) result.push_back(first_Candidate);
+        if (num2 > nums.size() / 3 && first_Candidate != second_Candidate) result.push_back(second_Candidate);
+        return result;
     }
 };

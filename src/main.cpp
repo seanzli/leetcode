@@ -1,5 +1,5 @@
 
-#include "../code221/solution.hpp"
+#include "../code222/solution.hpp"
 
 
 
@@ -7,12 +7,14 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    string l = "Ah71752";
-    vector<vector<char>> in =  {{'1','0','1','0','0'},
-                                {'1','0','1','1','1'},
-                                {'1','1','1','1','1'},
-                                {'1','0','0','1','0'}};
-    cout << test->maximalSquare(in) << endl;
+    TreeNode* root = new TreeNode(1);
+    root->left = new TreeNode(2);
+    root->right = new TreeNode(3);
+    root->left->left = new TreeNode(4);
+    root->left->right= new TreeNode(5);
+    root->right->left = new TreeNode(6);
+
+    cout << test->countNodes(root) << endl;
 
     /* while (in){
         cout << in->val << "->";

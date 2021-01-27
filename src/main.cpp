@@ -1,5 +1,5 @@
 
-#include "../code264/solution.hpp"
+#include "../code274/solution.hpp"
 
 
 
@@ -7,7 +7,8 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    cout << test->nthUglyNumber(10) << endl;
+    vector<int> in = {3,0,6,1,5};
+    cout << test->hIndex(in) << endl;
 
     /* while (in){
         cout << in->val << "->";

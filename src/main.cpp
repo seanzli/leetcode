@@ -1,14 +1,17 @@
 
-#include "../code241/solution.hpp"
+#include "../code257/solution.hpp"
 
 
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-    vector<int> in = {1,3,-1,-3,5,3,6,7};
 
-    vector<int> out = test->diffWaysToCompute("2-1-1");
+    TreeNode*in = new TreeNode(1);
+    in->left = new TreeNode(2);
+    in->right = new TreeNode(3);
+    in->left->right = new TreeNode(5);
+    vector<string> out = test->binaryTreePaths(in);
 
     /* while (in){
         cout << in->val << "->";

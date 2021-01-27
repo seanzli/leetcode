@@ -1,5 +1,5 @@
 
-#include "../code260/solution.hpp"
+#include "../code264/solution.hpp"
 
 
 
@@ -7,8 +7,7 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> in = {1,2,1,2};
-    vector<int> out = test->singleNumber(in);
+    cout << test->nthUglyNumber(10) << endl;
 
     /* while (in){
         cout << in->val << "->";

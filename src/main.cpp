@@ -1,5 +1,5 @@
 
-#include "../code257/solution.hpp"
+#include "../code260/solution.hpp"
 
 
 
@@ -7,11 +7,8 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    TreeNode*in = new TreeNode(1);
-    in->left = new TreeNode(2);
-    in->right = new TreeNode(3);
-    in->left->right = new TreeNode(5);
-    vector<string> out = test->binaryTreePaths(in);
+    vector<int> in = {1,2,1,2};
+    vector<int> out = test->singleNumber(in);
 
     /* while (in){
         cout << in->val << "->";

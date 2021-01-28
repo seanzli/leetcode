@@ -1,5 +1,5 @@
 
-#include "../code274/solution.hpp"
+#include "../code289/solution.hpp"
 
 
 
@@ -7,8 +7,8 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> in = {3,0,6,1,5};
-    cout << test->hIndex(in) << endl;
+    vector<vector<int>> in = {{0,1,0},{0,0,1},{1,1,1},{0,0,0}};
+    test->gameOfLife(in);
 
     /* while (in){
         cout << in->val << "->";

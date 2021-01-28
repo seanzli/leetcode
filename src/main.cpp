@@ -1,16 +1,13 @@
 
-#include "../code290/solution.hpp"
-
-
+#include "../code299/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    string pattern = "abba";
-    string s = "dog dog dog dog";
-    //vector<vector<int>> in = {{0,1,0},{0,0,1},{1,1,1},{0,0,0}};
-    cout << test->wordPattern(pattern, s) << endl;
+    string secret = "1807";
+    string guess = "7810";
+    cout << test->getHint(secret, guess) << endl;
 
     /* while (in){
         cout << in->val << "->";

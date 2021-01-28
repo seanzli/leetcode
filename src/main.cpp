@@ -1,12 +1,11 @@
 
-#include "../code303/solution.hpp"
+#include "../code306/solution.hpp"
 
 int main(int argc, char* argv[])
 {
-    //Solution *test = new Solution();
-    vector<int> in = {};
-    NumArray *test = new NumArray(in);
-    cout << test->sumRange(0,0) << endl;
+    Solution *test = new Solution();
+
+    cout << test->isAdditiveNumber("199001200") << endl;
     
     //cout << test->getHint(secret, guess) << endl;
 

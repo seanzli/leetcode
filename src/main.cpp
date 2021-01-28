@@ -1,13 +1,14 @@
 
-#include "../code299/solution.hpp"
+#include "../code303/solution.hpp"
 
 int main(int argc, char* argv[])
 {
-    Solution *test = new Solution();
-
-    string secret = "1807";
-    string guess = "7810";
-    cout << test->getHint(secret, guess) << endl;
+    //Solution *test = new Solution();
+    vector<int> in = {};
+    NumArray *test = new NumArray(in);
+    cout << test->sumRange(0,0) << endl;
+    
+    //cout << test->getHint(secret, guess) << endl;
 
     /* while (in){
         cout << in->val << "->";

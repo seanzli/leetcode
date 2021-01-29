@@ -1,18 +1,13 @@
 
-#include "../code667/solution.hpp"
+#include "../code1387/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
 
-    vector<int> out = test->constructArray(3,2);
+    cout <<  test->getKth(1,1000,777) << endl;
 
-    for (int i = 0; i < out.size(); i++)
-    {
-        cout << out[i] << ',';
-    }
-    cout << endl;
 
     return 0;
 }

@@ -1,24 +1,18 @@
 
-#include "../code307/solution.hpp"
+#include "../code667/solution.hpp"
 
 int main(int argc, char* argv[])
 {
-    //Solution *test = new Solution();
-    vector<int> in = {-1};
-    NumArray *test = new NumArray(in);
-    cout << test->sumRange(0,0) << endl;
-    test->update(0,1);
-    cout << test->sumRange(0,0) << endl;
+    Solution *test = new Solution();
 
 
-    //cout << test->isAdditiveNumber("199001200") << endl;
-    
-    //cout << test->getHint(secret, guess) << endl;
+    vector<int> out = test->constructArray(3,2);
 
-    /* while (in){
-        cout << in->val << "->";
-        in = in->next;
+    for (int i = 0; i < out.size(); i++)
+    {
+        cout << out[i] << ',';
     }
-    cout << endl; */
+    cout << endl;
+
     return 0;
 }

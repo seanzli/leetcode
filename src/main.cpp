@@ -1,11 +1,11 @@
 
-#include "../code1488/solution.hpp"
+#include "../code1266/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-    vector<int> in = {1,2,0,0,2,1};
-    test->avoidFlood(in);
+    vector<vector<int>> in = {{1,1},{3,4},{-1,0}};
+    test->minTimeToVisitAllPoints(in);
 
 
     return 0;

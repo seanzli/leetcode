@@ -1,11 +1,11 @@
 
-#include "../code841/solution.hpp"
+#include "../code459/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-    vector<vector<int>> in = {{1},{2},{3},{}};
-    test->canVisitAllRooms(in);
+    string s = "aba";
+    cout << test->repeatedSubstringPattern(s) << endl;
 
 
     return 0;

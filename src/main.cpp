@@ -1,11 +1,11 @@
 
-#include "../code866/solution.hpp"
+#include "../code/offer_48/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    cout << test->primePalindrome(1) << endl;
+    cout << test->lengthOfLongestSubstring("") << endl;
 
 
     return 0;

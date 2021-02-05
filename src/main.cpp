@@ -1,13 +1,16 @@
 
-#include "../code332/solution.hpp"
+#include "../code328/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<vector<string>> in = {{"MUC", "LHR"}, {"JFK", "MUC"}, {"SFO", "SJC"}, {"LHR", "SFO"}};
+    ListNode* in = new ListNode(1, new ListNode(2));
+    in->next->next = new ListNode(3);
+    in->next->next->next = new ListNode(4);
+    in->next->next->next->next = new ListNode(5);
 
-    vector<string> out = test->findItinerary(in);
+    test->oddEvenList(in);
 
     return 0;
 }

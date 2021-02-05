@@ -1,14 +1,13 @@
 
-#include "../code1208/solution.hpp"
+#include "../code332/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    string s = "abcd";
-    string t = "cdef";
+    vector<vector<string>> in = {{"MUC", "LHR"}, {"JFK", "MUC"}, {"SFO", "SJC"}, {"LHR", "SFO"}};
 
-    cout << test->equalSubstring(s,t,3) << endl;
+    vector<string> out = test->findItinerary(in);
 
     return 0;
 }

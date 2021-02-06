@@ -1,12 +1,12 @@
 
-#include "../code1423/solution.hpp"
+#include "../code1743/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-    vector<int> in = {9,7,7,9,7,7,9};
+    vector<vector<int>> in = {{4,-2},{1,4},{-3,1}};
 
-    cout << test->maxScore(in,7) << endl;
+    test->restoreArray(in);
 
     return 0;
 }

@@ -1,12 +1,12 @@
 
-#include "../code1743/solution.hpp"
+#include "../code1455/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-    vector<vector<int>> in = {{4,-2},{1,4},{-3,1}};
-
-    test->restoreArray(in);
+    string s1 = "you dream they pillow dumb pillow google you duck";
+    string s2 = "du";
+    test->isPrefixOfWord(s1, s2);
 
     return 0;
 }

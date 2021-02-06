@@ -1,11 +1,11 @@
 
-#include "../code1624/solution.hpp"
+#include "../code481/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
     string s = "mgntdygtxrvxjnwksqhxuxtrv";
-    test->maxLengthBetweenEqualCharacters(s);
+    test->magicalString(4);
 
     return 0;
 }

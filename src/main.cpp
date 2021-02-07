@@ -1,12 +1,11 @@
 
-#include "../code969/solution.hpp"
+#include "../code1452/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-    //string s = "mgntdygtxrvxjnwksqhxuxtrv";
-    vector<int> in = {3,2,4,1};
-    test->pancakeSort(in);
+    vector<vector<string>> in = {{"arrtztkotazhufrsfczr","knzgidixqgtnahamebxf","zibvccaoayyihidztflj"},{"cffiqfviuwjowkppdajm","owqvnrhuzwqohquamvsz"},{"knzgidixqgtnahamebxf","owqvnrhuzwqohquamvsz","qzeqyrgnbplsrgqnplnl"},{"arrtztkotazhufrsfczr","cffiqfviuwjowkppdajm"},{"arrtztkotazhufrsfczr","knzgidixqgtnahamebxf","owqvnrhuzwqohquamvsz","qzeqyrgnbplsrgqnplnl","zibvccaoayyihidztflj"}};
+    test->peopleIndexes(in);
 
     return 0;
 }

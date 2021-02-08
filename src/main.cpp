@@ -1,16 +1,11 @@
 
-#include "../code652/solution.hpp"
+#include "../code1413/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-
-    TreeNode* in = new TreeNode(2);
-    in->left = new TreeNode(1);
-    in->right = new TreeNode(11);
-    in->left->left = new TreeNode(11);
-    in->right->left = new TreeNode(1);
-    test->findDuplicateSubtrees(in);
+    vector<int> in = {-3,2,-3,4,2};
+    test->minStartValue(in);
 
     return 0;
 }

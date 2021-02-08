@@ -1,11 +1,11 @@
 
-#include "../code978/solution.hpp"
+#include "../code1324/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-    vector<int> in = {4};
-    cout << test->maxTurbulenceSize(in) << endl;
+    string s = "TO BE OR NOT TO BE";
+    test->printVertically(s);
 
     return 0;
 }

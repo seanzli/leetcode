@@ -1,11 +1,11 @@
 
-#include "../code1413/solution.hpp"
+#include "../code992/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-    vector<int> in = {-3,2,-3,4,2};
-    test->minStartValue(in);
+    vector<int> in = {1,2,1,2,3};
+    test->subarraysWithKDistinct(in,2);
 
     return 0;
 }

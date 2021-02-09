@@ -1,11 +1,18 @@
 
-#include "../code/code17_10/solution.hpp"
+#include "../code1372/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-    vector<int> in = {1,2,5,9,5,9,5,5,5};
-    test->majorityElement(in);
+    TreeNode* in = new TreeNode(1);
+    in->right = new TreeNode(1);
+    in->right->left = new TreeNode(1);
+    in->right->right = new TreeNode(1);
+    in->right->right->left = new TreeNode(1);
+    in->right->right->right = new TreeNode(1);
+    in->right->right->left->right = new TreeNode(1);
+    in->right->right->left->right->right = new TreeNode(1);
+    test->longestZigZag(in);
 
     return 0;
 }

@@ -1,11 +1,11 @@
 
-#include "../code1658/solution.hpp"
+#include "../code468/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-    vector<int> in = {1,1,4,2,3};
-    cout << test->minOperations(in,5) << endl;
+    string in = "192.0.0.1";
+    cout << test->validIPAddress(in) << endl;
 
     return 0;
 }

@@ -1,13 +1,11 @@
 
-#include "../code874/solution.hpp"
+#include "../code1658/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-
-    vector<int> command = {4,-1,3};
-    vector<vector<int>> obstacles;
-    cout << test->robotSim(command, obstacles) << endl;
+    vector<int> in = {1,1,4,2,3};
+    cout << test->minOperations(in,5) << endl;
 
     return 0;
 }

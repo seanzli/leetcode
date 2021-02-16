@@ -1,13 +1,13 @@
 
-#include "../code1071/solution.hpp"
+#include "../code868/solution.hpp"
 
 #include <queue>
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-    string a = "ABCABC";
-    string b = "ABC";
-    cout<<test->gcdOfStrings(a,b) << endl;
+
+    cout<<test->binaryGap(22) << endl;
+    
     return 0;
 }

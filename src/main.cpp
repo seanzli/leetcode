@@ -1,12 +1,13 @@
 
-#include "../code747/solution.hpp"
+#include "../code819/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> in = {0,0,2,3};
-    test->dominantIndex(in);
+    string paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.";
+    vector<string> banned = {"hit"};
+    test->mostCommonWord(paragraph,banned);
     
     return 0;
 }

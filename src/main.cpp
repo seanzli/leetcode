@@ -1,12 +1,14 @@
 
-#include "../code1004/solution.hpp"
+#include "../code1078/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> A = {0,0,1,1,0,0};
-    cout << test->longestOnes(A, 0) << endl;
+    string text = "alice is a good girl she is a good student";
+    string a = "a";
+    string b = "good";
+    test->findOcurrences(text, a, b);
     
     return 0;
 }

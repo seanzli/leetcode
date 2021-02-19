@@ -1,14 +1,12 @@
 
-#include "../code1078/solution.hpp"
+#include "../code747/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    string text = "alice is a good girl she is a good student";
-    string a = "a";
-    string b = "good";
-    test->findOcurrences(text, a, b);
+    vector<int> in = {0,0,2,3};
+    test->dominantIndex(in);
     
     return 0;
 }

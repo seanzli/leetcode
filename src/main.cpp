@@ -1,14 +1,12 @@
 
-#include "../code787/solution.hpp"
-
-#include <queue>
+#include "../code1004/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<vector<int>> flights = {{0,1,1},{0,2,5},{1,2,1},{2,3,1},{3,4,1}};
-    cout << test->findCheapestPrice(5, flights, 0, 4, 2) << endl;
+    vector<int> A = {0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1};
+    cout << test->longestOnes(A, 3) << endl;
     
     return 0;
 }

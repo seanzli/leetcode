@@ -7,16 +7,18 @@ class Solution {
 public:
     int longestOnes(vector<int>& A, int K) {
         int n = A.size();
-        int left = 0, lsum = 0, rsum = 0;
-        int ans = 0;
-        for (int right = 0; right < n; ++right) {
-            rsum += 1 - A[right];
-            while (lsum < rsum - K) {
-                lsum += 1 - A[left];
-                ++left;
+        int left = 0, count = 0;
+        int max_length = 0;
+        for (int right = 0; right < n; right++) {
+            if (A[right] == 0)
+                count++;
+            while (count > K) {
+                if (A[left] == 0)
+                    count--;
+                left++;
             }
-            ans = max(ans, right - left + 1);
+            max_length = max(max_length, right - left + 1);
         }
-        return ans;
+        return max_length;
     }
 };

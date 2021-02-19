@@ -1,13 +1,12 @@
 
-#include "../code819/solution.hpp"
+#include "../code1162/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    string paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.";
-    vector<string> banned = {"hit"};
-    test->mostCommonWord(paragraph,banned);
+    vector<vector<int>> grid = {{1,0,1},{0,0,0},{1,0,1}};
+    test->maxDistance(grid);
     
     return 0;
 }

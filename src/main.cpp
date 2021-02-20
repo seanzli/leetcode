@@ -1,11 +1,13 @@
 
-#include "../code401/solution.hpp"
+#include "../code953/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    test->readBinaryWatch(2);
+    vector<string> words = {"kuvp","q"};
+    string order = "ngxlkthsjuoqcpavbfdermiywz";
+    test->isAlienSorted(words, order);
     
     return 0;
 }

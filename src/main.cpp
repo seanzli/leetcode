@@ -1,13 +1,12 @@
 
-#include "../code953/solution.hpp"
+#include "../code443/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<string> words = {"kuvp","q"};
-    string order = "ngxlkthsjuoqcpavbfdermiywz";
-    test->isAlienSorted(words, order);
+    vector<char> in = {'a'};
+    test->compress(in);
     
     return 0;
 }

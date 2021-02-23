@@ -1,13 +1,12 @@
 
-#include "../code/code10_05/solution.hpp"
+#include "../code/code05_02/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<string> words = {"at", "", "", "", "ball", "", "", "car", "", "","dad", "", ""};
-    string s = "ta";
-    test->findString(words, s);
+
+    test->printBin(0.1);
     
     return 0;
 }

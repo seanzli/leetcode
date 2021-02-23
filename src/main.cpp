@@ -1,13 +1,16 @@
 
-#include "../code1052/solution.hpp"
+#include "../code817/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> cus = {1,0,1,2,1,1,7,5};
-    vector<int> gru = {0,1,0,1,0,1,0,1};
-    test->maxSatisfied(cus, gru, 3);
+    ListNode* head = new ListNode(0);
+    head->next = new ListNode(1);
+    head->next->next = new ListNode(2);
+    head->next->next->next = new ListNode(3);
+    vector<int> g = {0,1,3};
+    test->numComponents(head, g);
     
     return 0;
 }

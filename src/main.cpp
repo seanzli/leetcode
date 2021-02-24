@@ -1,12 +1,21 @@
 
-#include "../code832/solution.hpp"
+#include "../code863/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<vector<int>> in = {{1,1,0},{1,0,1},{0,0,0}};
-    test->flipAndInvertImage(in);
+    TreeNode* in = new TreeNode(3);
+    in->left = new TreeNode(5);
+    in->right = new TreeNode(1);
+    in->left->left = new TreeNode(6);
+    in->left->right = new TreeNode(2);
+    in->left->right->left = new TreeNode(7);
+    in->left->right->right = new TreeNode(4);
+    in->right->left = new TreeNode(0);
+    in->right->right = new TreeNode(8);
+
+    test->distanceK(in, in->left, 1);
     
     return 0;
 }

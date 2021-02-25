@@ -1,11 +1,11 @@
 
-#include "../code645/solution.hpp"
+#include "../code/code16_26/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> in = {2,4,2,1};
-    test->findErrorNums(in);
+    
+    test->calculate(" 3+5 / 2 *10");
     return 0;
 }

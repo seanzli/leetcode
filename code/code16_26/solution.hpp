@@ -1,3 +1,11 @@
+#include <cstdio>
+#include <iostream>
+#include <vector>
+#include <unordered_set>
+#include <stack>
+
+using namespace std;
+
 class Solution {
 public:
     int calculate(string s) {

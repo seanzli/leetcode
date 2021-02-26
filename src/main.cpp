@@ -1,11 +1,11 @@
 
-#include "../code312/solution.hpp"
+#include "../code1028/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> in = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
-    cout << test->maxCoins(in) << endl;
+    string s = "1-2--3--4-5--6--7";
+    cout << test->recoverFromPreorder(s) << endl;
     return 0;
 }

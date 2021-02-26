@@ -1,19 +1,11 @@
 
-#include "../code1373/solution.hpp"
+#include "../code937/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-    TreeNode* in = new TreeNode(3);
-    in->left = new TreeNode(4);
-    in->left->left = new TreeNode(2);
-    in->left->right = new TreeNode(4);
-    in->right = new TreeNode(3);
-    in->right->left = new TreeNode(2);
-    in->right->right = new TreeNode(5);
-    in->right->right->left = new TreeNode(4);
-    in->right->right->right = new TreeNode(6);
 
-    test->maxSumBST(in);
+    vector<string> in = {"dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"};
+    test->reorderLogFiles(in);
     return 0;
 }

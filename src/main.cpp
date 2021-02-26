@@ -1,11 +1,11 @@
 
-#include "../code1028/solution.hpp"
+#include "../code1652/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    string s = "1-2--3--4-5--6--7";
-    cout << test->recoverFromPreorder(s) << endl;
+    vector<int> code = {5,7,1,4};
+    test->decrypt(code, -3);
     return 0;
 }

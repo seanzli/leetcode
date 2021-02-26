@@ -1,11 +1,11 @@
 
-#include "../code/LCP_09/solution.hpp"
+#include "../code312/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> jump = {2,5,1,1,1,1};
-    cout << test->minJump(jump) << endl;
+    vector<int> in = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+    cout << test->maxCoins(in) << endl;
     return 0;
 }

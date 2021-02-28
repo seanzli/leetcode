@@ -1,11 +1,11 @@
 
-#include "../code621/solution.hpp"
+#include "../code322/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<char> task = {'A','A','A','B','B','B', 'C','C','C', 'D', 'D', 'E'};
-    cout << test->leastInterval(task, 2) << endl;
+    vector<int> nums = {2};
+    cout << test->coinChange(nums, 3) << endl;
     return 0;
 }

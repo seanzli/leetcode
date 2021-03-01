@@ -1,11 +1,12 @@
 
-#include "../code394/solution.hpp"
+#include "../code438/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    string in = "2[abc]3[cd]ef";
-    test->decodeString(in);
+    string a = "";
+    string b = "abc";
+    test->findAnagrams(a,b);
     return 0;
 }

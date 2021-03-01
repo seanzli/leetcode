@@ -1,11 +1,11 @@
 
-#include "../code347/solution.hpp"
+#include "../code394/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> in = {1,1,1,1,2,2,3,3,3};
-    test->topKFrequent(in,2);
+    string in = "2[abc]3[cd]ef";
+    test->decodeString(in);
     return 0;
 }

@@ -13,10 +13,14 @@ public:
         for (char cur : str) {
             if (cur >= '0' && cur <= '9')
                 str_num += cur;
-            if (cur == '+' || cur == '-')
+            else if (cur == '+' || cur == '-')
                 str_num += cur;
-            else if (cur == ' ')
-                continue;
+            else if (cur == ' ') {
+                if (str_num.size() > 0)
+                    break;
+                else
+                    continue;
+            }
             else
                 break;
         }

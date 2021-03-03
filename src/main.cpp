@@ -1,13 +1,11 @@
 
-#include "../code101-200/code121-140/code127/solution.hpp"
+#include "../code1377/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    string a = "hot";
-    string b = "dog";
-    vector<string> wordList = {a,b};
-    test->ladderLength(a,b, wordList);
+    vector<vector<int>> in = {{2,1},{3,2},{4,1},{5,1},{6,4},{7,1},{8,7}};
+    test->frogPosition(8, in, 7, 7);
     return 0;
 }

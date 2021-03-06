@@ -1,10 +1,11 @@
 
-#include "../code650/solution.hpp"
+#include "../code503/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    test->minSteps(3);
+    vector<int> in = {1,2,3};
+    test->nextGreaterElements(in);
     return 0;
 }

@@ -1,11 +1,10 @@
 
-#include "../code673/solution.hpp"
+#include "../code5681/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> nums = {1,3,5,4,7};
-    test->findNumberOfLIS(nums);
+    test->checkPowersOfThree(12);
     return 0;
 }

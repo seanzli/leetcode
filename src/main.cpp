@@ -1,11 +1,10 @@
 
-#include "../code503/solution.hpp"
+#include "../code101-200/code121-140/code131/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> in = {1,2,3};
-    test->nextGreaterElements(in);
+    test->partition("efe");
     return 0;
 }

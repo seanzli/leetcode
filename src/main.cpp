@@ -1,10 +1,10 @@
 
-#include "../code5681/solution.hpp"
+#include "../code1003/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    test->checkPowersOfThree(12);
+    test->isValid("abcabcababcc");
     return 0;
 }

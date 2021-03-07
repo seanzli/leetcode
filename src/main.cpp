@@ -1,10 +1,11 @@
 
-#include "../code1003/solution.hpp"
+#include "../code/LCP_03/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    test->isValid("abcabcababcc");
+    vector<vector<int>> obs = {{4,2}};
+    test->robot("URR", obs, 3, 2);
     return 0;
 }

@@ -1,11 +1,11 @@
 
-#include "../code/LCP_03/solution.hpp"
+#include "../code453/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<vector<int>> obs = {{4,2}};
-    test->robot("URR", obs, 3, 2);
+    vector<int> in = {1,2,3};
+    test->minMoves(in);
     return 0;
 }

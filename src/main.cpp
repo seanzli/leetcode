@@ -1,10 +1,10 @@
 
-#include "../code221-240/code224/solution.hpp"
+#include "../code221-240/code227/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    test->calculate("-(1+(4+5+2)-3)-(6+8)");
+    cout << test->calculate("1-1+1") << endl;
     return 0;
 }

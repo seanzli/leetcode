@@ -1,10 +1,10 @@
 
-#include "../code331/solution.hpp"
+#include "../code1-100/code21-40/code22/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    cout << test->isValidSerialization("9,#") << endl;
+    test->generateParenthesis(3);
     return 0;
 }

@@ -1,11 +1,10 @@
 
-#include "../code453/solution.hpp"
+#include "../code221-240/code227/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> in = {1,2,3};
-    test->minMoves(in);
+    cout << test->calculate("1-1+1") << endl;
     return 0;
 }

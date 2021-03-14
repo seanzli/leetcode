@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Solution {
+/* class Solution {
 public:
     int calculate(string s) {
         int out = 0;
@@ -45,5 +45,37 @@ public:
                 cur = cur*10 -'0' + s[idx];
         }
         return out += (signal*cur);
+    }
+}; */
+
+class Solution {
+public:
+    int calculate(string s) {
+        int idx = 0;
+        return calculate(s, idx);
+    }
+
+    int calculate(string s, int& idx) {
+        string nums = "";
+        int res = 0;
+        for ( ;idx < s.size(); idx++) {
+            if (s[idx] >= '0' && s[idx] <= '9')
+                nums += s[idx];
+            else if (s[idx] == '+' || s[idx] == '-') {
+                res += (atoi(nums.c_str()));
+                nums = s[idx];
+            } else if (s[idx] == '(') {
+                if (nums == "-")
+                    res -= calculate(s ,++idx);
+                else
+                    res += calculate(s ,++idx);
+                nums = "";
+            } else if (s[idx] == ')') {
+                res += (atoi(nums.c_str()));
+                return res;
+            }
+        }
+        res += (atoi(nums.c_str()));
+        return res;
     }
 };

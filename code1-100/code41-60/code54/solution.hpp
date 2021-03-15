@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class Solution {
+/* class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
         if (matrix.size() == 0 || matrix[0].size() == 0) {
@@ -41,5 +41,50 @@ public:
             bottom--;
         }
         return order;
+    }
+}; */
+
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int row = matrix.size();
+        int col = matrix[0].size();
+        vector<int> res(row * col, 0);
+        int flag = 0; // 0->right 1->down, 2->left 3->up
+        int i_row = 0, i_col = 0;
+        for (int i = 0; i < row * col; i++) {
+            res[i] = matrix[i_row][i_col];
+            matrix[i_row][i_col] = INT_MIN;
+            if (flag == 0) {
+                if (i_col + 1 == col || matrix[i_row][i_col + 1] == INT_MIN) {
+                    flag = 1;
+                    i_row++;
+                } else {
+                    i_col++;
+                }
+            } else if (flag == 1) {
+                if (i_row + 1 == row || matrix[i_row + 1][i_col] == INT_MIN) {
+                    flag = 2;
+                    i_col--;
+                } else {
+                    i_row++;
+                }
+            } else if (flag == 2) {
+                if (i_col == 0 || matrix[i_row][i_col - 1] == INT_MIN) {
+                    flag = 3;
+                    i_row--;
+                } else {
+                    i_col--;
+                }
+            } else {
+                if (i_row == 0 || matrix[i_row - 1][i_col] == INT_MIN) {
+                    flag = 0;
+                    i_col++;
+                } else {
+                    i_row--;
+                }
+            }
+        }
+        return res;
     }
 };

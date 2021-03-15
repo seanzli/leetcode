@@ -1,11 +1,11 @@
 
-#include "../code393/solution.hpp"
+#include "../code1049/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> data = {250,145,145,145,145};
-    cout << test->validUtf8(data) << endl;
+    vector<int> data = {31,26,33,21,40};
+    cout << test->lastStoneWeightII(data) << endl;
     return 0;
 }

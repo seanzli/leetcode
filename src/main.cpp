@@ -1,11 +1,14 @@
 
-#include "../code930/solution.hpp"
+#include "../code971/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> in = {1,0,1,0,1};
-    test->numSubarraysWithSum(in, 2);
+    TreeNode* in = new TreeNode(1);
+    in->left = new TreeNode(2);
+    in->right = new TreeNode(3);
+    vector<int> v = {1,3,2};
+    test->flipMatchVoyage(in, v);
     return 0;
 }

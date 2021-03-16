@@ -1,11 +1,11 @@
 
-#include "../code1049/solution.hpp"
+#include "../code/offer_63/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> data = {31,26,33,21,40};
-    cout << test->lastStoneWeightII(data) << endl;
+    vector<int> in = {7,1,5,3,6,4};
+    test->maxProfit(in);
     return 0;
 }

@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class Solution {
+/* class Solution {
 public:
     vector<vector<int>> generateMatrix(int n) {
         vector<vector<int>> out(n, vector<int>(n));
@@ -67,5 +67,25 @@ public:
             }
         }
         return out;
+    }
+}; */
+
+class Solution {
+public:
+    vector<vector<int>> generateMatrix(int n) {
+        vector<vector<int>> mat(n, vector<int>(n, 0));
+        int l = 0, r = n - 1, t = 0, b = n - 1;
+        int num = 1;
+        while(num <= n*n){
+            for(int i = l; i <= r; i++) mat[t][i] = num++; // left to right.
+            t++;
+            for(int i = t; i <= b; i++) mat[i][r] = num++; // top to bottom.
+            r--;
+            for(int i = r; i >= l; i--) mat[b][i] = num++; // right to left.
+            b--;
+            for(int i = b; i >= t; i--) mat[i][l] = num++; // bottom to top.
+            l++;
+        }
+        return mat;
     }
 };

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Solution {
+/* class Solution {
 public:
     bool isValidSerialization(string preorder) {
         int idx = 0;
@@ -37,5 +37,41 @@ public:
         }
         idx++;
         return res;
+    }
+}; */
+
+class Solution {
+public:
+    bool isValidSerialization(string preorder) {
+        vector<string> order;
+        string temp = "";
+        for (int i = 0; i < preorder.size(); i++) {
+            if (preorder[i] == ',') {
+                order.push_back(temp);
+                temp = "";
+            } else {
+                temp += preorder[i];
+            }
+        }
+        if (temp.size())
+            order.push_back(temp);
+
+        if (order[0] == "#")
+            return return order.size() == 1;
+        int count = 2;
+        int i = 1;
+        for (i = 1; i < order.size(); i++) {
+            if (order[i] == "#") {
+                count--;
+                if (count < 0)
+                    return false;
+                if (count == 0)
+                    break;
+            }
+            else {
+                count++;
+            }
+        }
+        return count == 0 && i == order.size() - 1;
     }
 };

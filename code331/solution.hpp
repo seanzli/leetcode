@@ -57,7 +57,7 @@ public:
             order.push_back(temp);
 
         if (order[0] == "#")
-            return return order.size() == 1;
+            return order.size() == 1;
         int count = 2;
         int i = 1;
         for (i = 1; i < order.size(); i++) {

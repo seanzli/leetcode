@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <map>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-class Solution {
+/* class Solution {
 public:
     ListNode* sortList(ListNode* head) {
         if (head == nullptr) {
@@ -74,5 +75,25 @@ public:
             temp->next = temp2;
         }
         return dummyHead->next;
+    }
+}; */
+class Solution {
+public:
+    ListNode* sortList(ListNode* head) {
+        multimap<int, int> hash;
+        vector<ListNode*> vec;
+        ListNode* cur = head;
+        while (cur) {
+            hash.insert(make_pair(cur->val, (int)vec.size()));
+            vec.push_back(cur);
+            cur = cur->next;
+        }
+        ListNode* dummy = new ListNode(0);
+        cur = dummy;
+        for (auto itr = hash.begin(); itr != hash.end(); itr++) {
+            cur->next = vec[itr->second];
+            cur = cur->next;
+        }
+        return dummy->next;
     }
 };

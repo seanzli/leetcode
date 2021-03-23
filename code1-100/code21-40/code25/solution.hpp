@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <string>
 #include <iostream>
+#include <stack>
 
 using namespace std;
 
@@ -15,7 +16,7 @@ struct ListNode {
    ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-class Solution {
+/* class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
         if (k==1)
@@ -51,5 +52,32 @@ public:
             p_head = p1;
         }
         
+    }
+}; */
+
+class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        if (k == 1) return head;
+
+        stack<ListNode*> m_stack;
+        ListNode* cur = head;
+        ListNode* dummy = new ListNode(0);
+        ListNode* cur_head = dummy;
+        while (cur) {
+            m_stack.push(cur);
+            if (m_stack.size() == k) {
+                cur = cur->next;
+                while (m_stack.size()) {
+                    cur_head->next = m_stack.top();
+                    m_stack.pop();
+                    cur_head = cur_head->next;
+                }
+            } else {
+                cur = cur->next;
+            }
+        }
+        cur_head->next = nullptr;
+        return dummy->next;
     }
 };

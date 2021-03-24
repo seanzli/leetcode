@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Solution {
+/* class Solution {
 public:
     string decodeString(string s) {
         string res = "";
@@ -42,6 +42,35 @@ public:
                 }
             } else {
                 res += s[i];
+            }
+        }
+        return res;
+    }
+}; */
+
+class Solution {
+public:
+    string decodeString(string s) {
+        int idx = 0;
+        return decodeString(s, idx);
+    }
+    string decodeString(string s, int& idx) {
+        string res = "";
+        string num = "";
+        for (; idx < s.size(); idx++) {
+            char cur = s[idx];
+            if (cur >= '0' && cur <= '9') {
+                num += cur;
+            } else if (cur == '[') {
+                string tmp = decodeString(s, ++idx);
+                for (int i = 0; i < stoi(num); i++) {
+                    res += tmp;
+                }
+                num = "";
+            } else if (cur == ']') {
+                return res;
+            } else {
+                res += cur;
             }
         }
         return res;

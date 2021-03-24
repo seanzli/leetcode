@@ -1,11 +1,11 @@
 
-#include "../code880/solution.hpp"
+#include "../code394/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    string s = "leet2code3";
-    cout << test->decodeAtIndex(s, 10) << endl;
+    string s = "3[a]2[bc]";
+    cout << test->decodeString(s) << endl;
     return 0;
 }

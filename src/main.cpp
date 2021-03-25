@@ -1,11 +1,11 @@
 
-#include "../code394/solution.hpp"
+#include "../code503/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    string s = "3[a]2[bc]";
-    cout << test->decodeString(s) << endl;
+    vector<int> in = {5};
+    test->nextGreaterElements(in);
     return 0;
 }

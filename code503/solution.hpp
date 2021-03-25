@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Solution {
+/* class Solution {
 public:
     vector<int> nextGreaterElements(vector<int>& nums) {
         stack<int> s;
@@ -38,5 +38,29 @@ public:
         }
 
         return v;
+    }
+}; */
+
+class Solution {
+public:
+    vector<int> nextGreaterElements(vector<int>& nums) {
+        vector<int> res;
+        int n = nums.size();
+        if (n == 0)
+            return res;
+        for (int i = 0; i < n; i++) {
+            nums.push_back(nums[i]);
+        }
+        stack<int> st; // small -> large
+        res = vector<int>(n, -1);
+        for (int i = 0; i < 2 * n; i++) {
+            while (st.size() > 0 && nums[st.top()] < nums[i]) {
+                if (st.top() < n)
+                    res[st.top()] = nums[i];
+                st.pop();
+            }
+            st.push(i);
+        }
+        return res;
     }
 };

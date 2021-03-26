@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Solution {
+/* class Solution {
 public:
     vector<int> asteroidCollision(vector<int>& asteroids) {
         vector<int> out;
@@ -33,5 +33,30 @@ public:
             }
         }
         return out;
+    }
+}; */
+
+class Solution {
+public:
+    vector<int> asteroidCollision(vector<int>& asteroids) {
+        vector<int> res;
+        for (int i = 0; i < asteroids.size(); i++) {
+            bool flag = true;
+            while (res.size() > 0 && res.back() > 0 && asteroids[i] < 0) {
+                if (-asteroids[i] > res.back()) {
+                    res.pop_back();
+                } else if (-asteroids[i] == res.back()) {
+                    res.pop_back();
+                    flag = false;
+                    break;
+                } else {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag)
+                res.push_back(asteroids[i]);
+        }
+        return res;
     }
 };

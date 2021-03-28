@@ -12,7 +12,7 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-class Solution {
+/* class Solution {
 public:
     bool isPalindrome(ListNode* head) {
         ListNode *fast=head, *slow=head;
@@ -33,5 +33,47 @@ public:
             slow = slow->next;
         }
         return true;
+    }
+}; */
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        if (head == nullptr || head->next == nullptr)    return true;
+        ListNode *fast = head, *slow = head;
+        while (fast && fast->next) {
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+        if (fast)
+            slow = slow->next;
+            
+        fast = reverseList(slow);
+        slow = head;
+        while (fast) {
+            if (fast->val != slow->val)
+                return false;
+            fast = fast->next;
+            slow = slow->next;
+        }
+        return true;
+    }
+
+    ListNode* reverseList(ListNode* head) {
+        if (head == nullptr || head->next == nullptr)   return head;
+        ListNode *new_head = reverseList(head->next);
+        head->next->next = head;
+        head->next = nullptr;
+        return new_head;
     }
 };

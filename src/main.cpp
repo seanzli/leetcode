@@ -1,15 +1,13 @@
 
-#include "../code221-240/code234/solution.hpp"
+#include "../code373/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    ListNode* in = new ListNode(1);
-    in->next = new ListNode(2);
-    in->next->next = new ListNode(1);
-    in->next->next->next = new ListNode(2);
-    in->next->next->next->next = new ListNode(1);
-    test->isPalindrome(in);
+    vector<int> nums1 = {1,7,11};
+    vector<int> nums2 = {2,4,6};
+
+    test->kSmallestPairs(nums1, nums2, 3);
     return 0;
 }

@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Solution {
+/* class Solution {
 public:
     vector<vector<int>> result;
     vector<int> path;
@@ -97,6 +97,68 @@ public:
                 continue;
             cur.push_back(nums[i]);
             getVector(nums, i+1, out);
+            cur.pop_back();
+        }
+    }
+}; */
+
+/* class Solution {
+public:
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        vector<vector<int>> res;
+        sort(nums.begin(), nums.end());
+        int n = 1 << nums.size();
+        for (int i = 0; i < n; i++) {
+            vector<int> vec;
+            int cur = i;
+            int count = 0;
+            while (cur) {
+                if (cur & 1 == 1) {
+                    vec.push_back(nums[count]);
+                }
+                count++;
+                cur >>= 1;
+            }
+
+            int k = 0;
+            for (; k < res.size(); k++) {
+                auto itr = res[k];
+                if (itr.size() == vec.size()) {
+                    int j = 0;
+                    for ( ; j < itr.size(); j++) {
+                        if (itr[j] != vec[j]) {
+                            break;
+                        }
+                    }
+                    if (j == itr.size()) {
+                        res.pop_back();
+                        break;
+                    }
+                }
+            }
+            if (k == res.size())
+                res.push_back(vec);
+        }
+        return res;
+    }
+}; */
+
+class Solution {
+    vector<vector<int>> res;
+    vector<int> cur;
+public:
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        dfs(nums, 0);
+        return res;
+    }
+    void dfs(vector<int>& nums, int idx) {
+        res.push_back(cur);
+        for (int i = idx; i < nums.size(); i++) {
+            if (i > idx && nums[i] == nums[i - 1])
+                continue;
+            cur.push_back(nums[i]);
+            dfs(nums, i + 1);
             cur.pop_back();
         }
     }

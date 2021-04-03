@@ -2,10 +2,11 @@
 #include <vector>
 #include <string>
 #include <memory.h>
+#include <unordered_set>
 
 using namespace std;
 
-class Solution {
+/* class Solution {
 public:
     vector<string> wordBreak(string s, vector<string>& wordDict) {
         if (!wordBreak_139(s, wordDict)) return {};
@@ -51,5 +52,40 @@ public:
             }
         }
         return dp.back();
+    }
+}; */
+
+class Solution {
+    unordered_set<string> dict;
+    vector<string> res;
+    vector<string> cur;
+
+public:
+    vector<string> wordBreak(string s, vector<string>& wordDict) {
+        for (string str : wordDict)
+            dict.insert(str);
+        dfs(s, 0);
+        return res;
+    }
+
+    void dfs(const string& s, int idx) {
+        if (idx == s.size()) {
+            if (cur.size()) {
+                string str = "";
+                for (int i = 0; i < cur.size(); i++) {
+                    str += (cur[i] + " ");
+                }
+                str.pop_back();
+                res.push_back(str);
+            }
+            return;
+        }
+        for (int i = idx; i < s.size(); i++) {
+            if (dict.find(s.substr(idx, i - idx + 1)) == dict.end())
+                continue;
+            cur.push_back(s.substr(idx, i - idx + 1));
+            dfs(s, i + 1);
+            cur.pop_back();
+        }
     }
 };

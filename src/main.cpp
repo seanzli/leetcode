@@ -1,10 +1,11 @@
 
-#include "../code201-220/code204/solution.hpp"
+#include "../code1-100/code61-80/code80/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    test->countPrimes(50000);
+    vector<int> in = {1,1,1,2,2,3};
+    test->removeDuplicates(in);
     return 0;
 }

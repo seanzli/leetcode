@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Solution {
+/* class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
         int cur = INT_MIN, count=1;
@@ -32,5 +32,24 @@ public:
         }
 
         return nums.size();
+    }
+}; */
+
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int n = nums.size();
+        if (n < 3)
+            return n;
+        int left = 2;
+        for (int right = 2; right < n; right++) {
+            if (nums[left - 2] == nums[right]) {
+                cout << right << endl;
+                continue;
+            }
+            else
+                nums[left++] = nums[right];
+        }
+        return left;
     }
 };

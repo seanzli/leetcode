@@ -1,10 +1,10 @@
 
-#include "../code201-220/code204/solution.hpp"
+#include "../code/code08_11/solution.hpp"
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    test->countPrimes(50000);
+    cout << test->waysToChange(50000) << endl;
     return 0;
 }

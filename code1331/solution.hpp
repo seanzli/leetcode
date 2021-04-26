@@ -1,6 +1,7 @@
 #include <map>
 #include <vector>
 #include <limits.h>
+#include <algorithm>
 
 using namespace std;
 

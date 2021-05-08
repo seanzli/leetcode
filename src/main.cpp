@@ -1,11 +1,14 @@
 
-#include "../code403/solution.hpp"
+#include "../code1128/solution.hpp"
+
+#include <iostream>
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> stones = {0,1,3,5,6,8,12,17};
-    cout << test->canCross(stones) << endl;
+    vector<vector<int>> dom = {{1,2},{1,2},{1,1},{1,2},{2,2}};
+    
+    cout << test->numEquivDominoPairs(dom) << endl;
     return 0;
 }

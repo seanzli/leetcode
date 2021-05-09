@@ -1,5 +1,5 @@
 
-#include "../code1128/solution.hpp"
+#include "../code1482/solution.hpp"
 
 #include <iostream>
 
@@ -7,8 +7,7 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<vector<int>> dom = {{1,2},{1,2},{1,1},{1,2},{2,2}};
-    
-    cout << test->numEquivDominoPairs(dom) << endl;
+    vector<int> bl = {1,10,2,9,3,8,4,7,5,6};
+    cout << test->minDays(bl, 4, 2) << endl;
     return 0;
 }

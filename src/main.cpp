@@ -1,13 +1,11 @@
 
-#include "../code1482/solution.hpp"
-
+#include "../code/offer_13/solution.hpp"
 #include <iostream>
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> bl = {1,10,2,9,3,8,4,7,5,6};
-    cout << test->minDays(bl, 4, 2) << endl;
+    cout << test->movingCount(3,2,17) << endl;
     return 0;
 }

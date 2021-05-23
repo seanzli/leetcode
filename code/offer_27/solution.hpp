@@ -16,7 +16,7 @@ struct TreeNode {
 class Solution {
 public:
     TreeNode* mirrorTree(TreeNode* root) {
-        if (root == nullptr)    return;
+        if (root == nullptr)    return nullptr;
         TreeNode* cur = new TreeNode(root->val);
         if (root->left)
             cur->right = mirrorTree(root->left);

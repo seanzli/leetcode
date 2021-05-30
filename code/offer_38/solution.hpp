@@ -9,6 +9,7 @@ using namespace std;
     vector<string> res;
     string cur;
     vector<bool> visited;
+    set<string> st;
 public:
     vector<string> permutation(string s) {
         int n = s.size();
@@ -20,8 +21,9 @@ public:
 
     void dfs(string s, int idx) {
         if (idx == s.size()) {
-            if (res.size() && cur == res.back())
+            if (st.find(cur) != st.end())
                 return;
+            st.insert(cur);
             res.push_back(cur);
             return;
         }

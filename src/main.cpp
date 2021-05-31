@@ -1,11 +1,14 @@
 
-#include "../code/offer_13/solution.hpp"
+#include "../code/offer_37/solution.hpp"
 #include <iostream>
 
 int main(int argc, char* argv[])
 {
-    Solution *test = new Solution();
+    Codec *test = new Codec();
+    
+    string t = "[1,2,3,4,null,null,5,5,null,1]";
 
-    cout << test->movingCount(3,2,17) << endl;
+    TreeNode* head =  test->deserialize(t);
+    
     return 0;
 }

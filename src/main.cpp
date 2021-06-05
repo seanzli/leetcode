@@ -1,14 +1,14 @@
 
-#include "../code/offer_37/solution.hpp"
+#include "../code523/solution.hpp"
 #include <iostream>
 
 int main(int argc, char* argv[])
 {
-    Codec *test = new Codec();
+    Solution *test = new Solution();
     
-    string t = "[1,2,3,4,null,null,5,5,null,1]";
-
-    TreeNode* head =  test->deserialize(t);
+    vector<int> head = {23,2,6,4,7};
+    int k = 13;
+    cout << test->checkSubarraySum(head, k) << endl;
     
     return 0;
 }

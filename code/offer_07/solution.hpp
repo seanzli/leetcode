@@ -12,7 +12,7 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-class Solution {
+/* class Solution {
 private:
     unordered_map<int, int> index;
 
@@ -47,5 +47,30 @@ public:
             index[inorder[i]] = i;
         }
         return myBuildTree(preorder, inorder, 0, n - 1, 0, n - 1);
+    }
+}; */
+
+class Solution {
+    unordered_map<int, int> inorder_idx; // value -> index
+public:
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        for (int i = 0; i < inorder.size(); i++)
+            inorder_idx[inorder[i]] = i;
+        return buildTree(preorder, inorder, 0, preorder.size() - 1, 0, inorder.size() - 1);
+    }
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder, 
+                        int pre_left, int pre_right, int in_left, int in_right) {
+        if (pre_left > pre_right)
+            return nullptr;
+        TreeNode *root = new TreeNode(preorder[pre_left]);
+        if (pre_left == pre_right)
+            return root;
+
+        int inorder_root_idx = inorder_idx[preorder[pre_left]];
+        
+        int left_size = inorder_root_idx - in_left;
+        root->left = buildTree(preorder, inorder, pre_left + 1, pre_left + left_size, in_left, inorder_root_idx - 1);
+        root->right = buildTree(preorder, inorder, pre_left + left_size + 1, pre_right, inorder_root_idx + 1, in_right);
+        return root;
     }
 };

@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <unordered_map>
+#include <unordered_set>
 
 using namespace std;
 
@@ -76,6 +77,30 @@ public:
 
         for (auto itr = hash.begin(); itr != hash.end(); itr++) {
             res.push_back(itr->second);
+        }
+        return res;
+    }
+};
+
+class Solution4 {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int res = 0;
+        if (s.size() < 2)
+            return s.size();
+        int left = 0, right = 0;
+        unordered_set<char> hash;
+        while (right < s.size()) {
+            if (hash.count(s[right]) == 0) {
+                res = max(res, right - left + 1);
+                hash.insert(s[right]);
+                right++;
+            } else {
+                while (hash.count(s[right]) == 1) {
+                    hash.erase(s[left]);
+                    left++;
+                }
+            }
         }
         return res;
     }

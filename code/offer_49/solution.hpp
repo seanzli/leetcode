@@ -5,21 +5,16 @@ using namespace std;
 class Solution {
 public:
     int nthUglyNumber(int n) {
-        vector<int> dp(n);
-        if (n == 1)
-            return 1;
-        int idx2 = 0, idx3 = 0, idx5 = 0;
-        for (int i = 1; i < n; i++) {
-            dp[i] = min(dp[idx2] * 2, dp[idx3] * 3);
-            dp[i] = min(dp[i], dp[idx5] * 5);
-            
-            if (dp[i] == dp[idx2] * 2)
-                idx2++;
-            else if (dp[i] == dp[idx3] * 3)
-                idx3++;
-            else
-                idx5++;
+        int a = 0, b = 0, c = 0;
+        int dp[n];
+        dp[0] = 1;
+        for(int i = 1; i < n; i++) {
+            int n2 = dp[a] * 2, n3 = dp[b] * 3, n5 = dp[c] * 5;
+            dp[i] = min(min(n2, n3), n5);
+            if(dp[i] == n2) a++;
+            if(dp[i] == n3) b++;
+            if(dp[i] == n5) c++;
         }
-        return dp.back();
+        return dp[n - 1];
     }
 };

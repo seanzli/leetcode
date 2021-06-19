@@ -2,10 +2,11 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <unordered_set>
 
 using namespace std;
 
-class Solution {
+/* class Solution {
     int max_length = 0;
     vector<bool> visited;
     int cur_length = 0;
@@ -48,5 +49,45 @@ public:
             cur[str[i] - 'a'] = true;
         }
         return true;
+    }
+}; */
+
+class Solution {
+    int res;
+public:
+    int maxLength(vector<string>& arr) {
+        vector<bool> visited(26, false);
+        
+        sort(arr.begin(), arr.end(), [](const string& a, const string &b) {return a.size() > b.size();});
+        
+        if (arr.size() == 0)
+            return 0;
+
+        dfs(arr, 0, visited, 0);
+
+        return res;
+    }
+
+    void dfs(const vector<string>& strs, int i, vector<bool>& visited, int len) {
+        if (i == strs.size()) {
+            return;
+        }
+
+        for (; i < strs.size(); i++) {
+            vector<bool> v = visited;
+            bool flag = true;
+            for (char itr : strs[i]) {
+                if (v[itr - 'a'] == true) {
+                    flag = false;
+                    break;
+                }
+                v[itr - 'a'] = true;
+            }
+            if (flag) {
+                res = max(res, len + (int)strs[i].size());
+                dfs(strs, i + 1, v, len + strs[i].size());
+            }
+        }
+        return;
     }
 };

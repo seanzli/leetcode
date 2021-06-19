@@ -12,8 +12,8 @@ public:
                 for (int k = 0; k < 6; ++k)
                     temp[j + k] += dp[j] / 6.0;
             }
+            dp = temp;
         }
-        dp = temp;
+        return dp;
     }
-    return dp;
 };

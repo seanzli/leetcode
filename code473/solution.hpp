@@ -29,7 +29,6 @@ public:
             if (acc[i] == 0 || acc[i] + match[idx] == cur)
                 break;
         }
-
         return false;
     }
 };

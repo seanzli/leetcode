@@ -1,14 +1,18 @@
 
-#include "../code752/solution.hpp"
+#include "../code/LC/solution.hpp"
+
 #include <iostream>
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-    
-    vector<string> d = {"0201","0101","0102","1212","2002"};
 
-    cout << test->openLock(d, "0202") << endl;
+    vector<int> in = {2,0,2,1,1,0};
+
+    test->sortColors(in);
+
+    for_each(in.begin(), in.end(), [](const int& itr){cout << itr << ",";});
+    cout << endl;
     
     return 0;
 }

@@ -126,20 +126,51 @@ using namespace std;
 //     }
 // };
 
+// class Solution {
+// public:
+//     vector<int> topKFrequent(vector<int>& nums, int k) {
+//         priority_queue<pair<int, int>> que;
+//         unordered_map<int ,int> hash;
+//         for (int itr : nums)
+//             hash[itr]++;
+//         for (auto itr = hash.begin(); itr != hash.end(); itr++)
+//             que.push(make_pair(itr->second, itr->first));
+//         vector<int> res;
+//         for (int i = 0; i < k; i++) {
+//             res.push_back(que.top().second);
+//             que.pop();
+//         }
+//         return res;
+//     }
+// };
+
 class Solution {
 public:
-    vector<int> topKFrequent(vector<int>& nums, int k) {
-        priority_queue<pair<int, int>> que;
-        unordered_map<int ,int> hash;
-        for (int itr : nums)
-            hash[itr]++;
-        for (auto itr = hash.begin(); itr != hash.end(); itr++)
-            que.push(make_pair(itr->second, itr->first));
-        vector<int> res;
-        for (int i = 0; i < k; i++) {
-            res.push_back(que.top().second);
-            que.pop();
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int left = 0, right = nums.size() - 1;
+        int mid;
+        while (left <= right) {
+            mid = left + (right - left) / 2;
+            if (nums[mid] == target) {
+                break;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
         }
-        return res;
+        if (left > right) {
+            return {-1, -1};
+        }
+        
+        left = mid;
+        while (left >= 0 && nums[left] == nums[mid])
+            left--;
+        
+        right = mid;
+        while (right < nums.size() && nums[right] == nums[mid])
+            right++;
+        
+        return {left+1, right-1};
     }
 };

@@ -1,5 +1,5 @@
 
-#include "../code/LC/solution.hpp"
+#include "../code101-200/code161-180/code162/solution.hpp"
 
 #include <iostream>
 
@@ -7,12 +7,9 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> in = {2,0,2,1,1,0};
+    vector<int> in = {1,2,3,1};
 
-    test->sortColors(in);
+    test->findPeakElement(in);
 
-    for_each(in.begin(), in.end(), [](const int& itr){cout << itr << ",";});
-    cout << endl;
-    
     return 0;
 }

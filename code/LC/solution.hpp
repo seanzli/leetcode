@@ -144,33 +144,58 @@ using namespace std;
 //     }
 // };
 
+// class Solution {
+// public:
+//     vector<int> searchRange(vector<int>& nums, int target) {
+//         int left = 0, right = nums.size() - 1;
+//         int mid;
+//         while (left <= right) {
+//             mid = left + (right - left) / 2;
+//             if (nums[mid] == target) {
+//                 break;
+//             } else if (nums[mid] < target) {
+//                 left = mid + 1;
+//             } else {
+//                 right = mid - 1;
+//             }
+//         }
+//         if (left > right) {
+//             return {-1, -1};
+//         }
+        
+//         left = mid;
+//         while (left >= 0 && nums[left] == nums[mid])
+//             left--;
+        
+//         right = mid;
+//         while (right < nums.size() && nums[right] == nums[mid])
+//             right++;
+        
+//         return {left+1, right-1};
+//     }
+// };
+
 class Solution {
 public:
-    vector<int> searchRange(vector<int>& nums, int target) {
-        int left = 0, right = nums.size() - 1;
-        int mid;
-        while (left <= right) {
-            mid = left + (right - left) / 2;
-            if (nums[mid] == target) {
-                break;
-            } else if (nums[mid] < target) {
-                left = mid + 1;
-            } else {
-                right = mid - 1;
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        sort(intervals.begin(), intervals.end(), [](const vector<int>& a, const vector<int>& b) {
+            if (a[0] == b[0])
+                return b[1] < a[1];
+            return a[0] < b[0];
+            });
+        
+        vector<vector<int>> res;
+        int left = intervals[0][0], right = intervals[0][1];
+        for (int i = 1; i < intervals.size(); i++) {
+            if (intervals[i][0] > right) {
+                res.push_back({left, right});
+                left = intervals[i][0];
+                right = intervals[i][1];
+            } else if (intervals[i][1] >= right && intervals[i][0] <= right) {
+                right = intervals[i][1];
             }
         }
-        if (left > right) {
-            return {-1, -1};
-        }
-        
-        left = mid;
-        while (left >= 0 && nums[left] == nums[mid])
-            left--;
-        
-        right = mid;
-        while (right < nums.size() && nums[right] == nums[mid])
-            right++;
-        
-        return {left+1, right-1};
+        res.push_back({left, right});
+        return res;
     }
 };

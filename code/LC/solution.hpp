@@ -225,18 +225,40 @@ using namespace std;
 //     }
 // };
 
+// class Solution {
+// public:
+//     bool increasingTriplet(vector<int>& nums) {
+//         int left = INT_MAX, mid = INT_MAX;
+//         for (auto & itr : nums) {
+//             if (itr <= left)
+//                 left = itr;
+//             else if (itr <= mid) 
+//                 mid = itr;
+//             else if (itr > mid)
+//                 return true;
+//         }
+//         return false;
+//     }
+// };
+
 class Solution {
 public:
-    bool increasingTriplet(vector<int>& nums) {
-        int left = INT_MAX, mid = INT_MAX;
-        for (auto & itr : nums) {
-            if (itr <= left)
-                left = itr;
-            else if (itr <= mid) 
-                mid = itr;
-            else if (itr > mid)
-                return true;
+    int search(vector<int>& nums, int target) {
+        int left = 0, right = nums.size() - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] == target)
+                return mid;
+            
+            if (nums[left] <= target && target < nums[mid])  // left -> target -> mid  increase;
+                right = mid - 1;
+            else if (nums[mid] < target && target <= nums[right]) // mid -> target -> right increase;
+                left = mid + 1;
+            else if (nums[mid] > nums[right] && (target <= nums[right] || target > nums[mid])) // mid -> largest -> right 
+                left = mid + 1;
+            else
+                right = mid - 1;
         }
-        return false;
+        return -1;
     }
 };

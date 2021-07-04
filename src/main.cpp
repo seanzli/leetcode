@@ -7,9 +7,9 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> s = {1, 1, -2, 6};
+    vector<int> s = {3 , 1};
 
-    cout << test->increasingTriplet(s) << endl;
+    cout << test->search(s, 1) << endl;
 
     return 0;
 }

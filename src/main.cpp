@@ -7,9 +7,9 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    string s = "aaaa";
+    vector<int> s = {1, 1, -2, 6};
 
-    cout << test->longestPalindrome(s) << endl;
+    cout << test->increasingTriplet(s) << endl;
 
     return 0;
 }

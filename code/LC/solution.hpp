@@ -175,27 +175,52 @@ using namespace std;
 //     }
 // };
 
+// class Solution {
+// public:
+//     vector<vector<int>> merge(vector<vector<int>>& intervals) {
+//         sort(intervals.begin(), intervals.end(), [](const vector<int>& a, const vector<int>& b) {
+//             if (a[0] == b[0])
+//                 return b[1] < a[1];
+//             return a[0] < b[0];
+//             });
+        
+//         vector<vector<int>> res;
+//         int left = intervals[0][0], right = intervals[0][1];
+//         for (int i = 1; i < intervals.size(); i++) {
+//             if (intervals[i][0] > right) {
+//                 res.push_back({left, right});
+//                 left = intervals[i][0];
+//                 right = intervals[i][1];
+//             } else if (intervals[i][1] >= right && intervals[i][0] <= right) {
+//                 right = intervals[i][1];
+//             }
+//         }
+//         res.push_back({left, right});
+//         return res;
+//     }
+// };
+
 class Solution {
 public:
-    vector<vector<int>> merge(vector<vector<int>>& intervals) {
-        sort(intervals.begin(), intervals.end(), [](const vector<int>& a, const vector<int>& b) {
-            if (a[0] == b[0])
-                return b[1] < a[1];
-            return a[0] < b[0];
-            });
-        
-        vector<vector<int>> res;
-        int left = intervals[0][0], right = intervals[0][1];
-        for (int i = 1; i < intervals.size(); i++) {
-            if (intervals[i][0] > right) {
-                res.push_back({left, right});
-                left = intervals[i][0];
-                right = intervals[i][1];
-            } else if (intervals[i][1] >= right && intervals[i][0] <= right) {
-                right = intervals[i][1];
+    string longestPalindrome(string s) {
+        int n = s.size();
+        vector<vector<bool>> dp(n, vector<bool>(n, false));
+        string ans;
+        for (int l = 0; l < n; ++l) {
+            for (int i = 0; i + l < n; ++i) {
+                int j = i + l;
+                if (l == 0) {
+                    dp[i][j] = true;
+                } else if (l == 1) {
+                    dp[i][j] = (s[i] == s[j]);
+                } else {
+                    dp[i][j] = (s[i] == s[j] && dp[i + 1][j - 1]);
+                }
+                if (dp[i][j] && l + 1 > ans.size()) {
+                    ans = s.substr(i, l + 1);
+                }
             }
         }
-        res.push_back({left, right});
-        return res;
+        return ans;
     }
 };

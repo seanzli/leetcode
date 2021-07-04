@@ -1,5 +1,5 @@
 
-#include "../code101-200/code161-180/code162/solution.hpp"
+#include "../code/LC/solution.hpp"
 
 #include <iostream>
 
@@ -7,9 +7,9 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> in = {1,2,3,1};
+    string s = "aaaa";
 
-    test->findPeakElement(in);
+    cout << test->longestPalindrome(s) << endl;
 
     return 0;
 }

@@ -278,19 +278,34 @@ using namespace std;
 //     }
 // };
 
+// class Solution {
+// public:
+//     int coinChange(vector<int>& coins, int amount) {
+//         vector<int> dp(amount + 1, INT_MAX);
+//         dp[0] = 0;
+//         for (int i = 1; i <= amount; ++i) {
+//             for (int itr : coins) {
+//                 if (i - itr >= 0 && dp[i - itr] < INT_MAX)
+//                     dp[i] = min(dp[i], dp[i - itr] + 1);
+//             }
+//         }
+//         if (dp.back() == INT_MAX)
+//             return -1;
+//         return dp.back();
+//     }
+// };
+
 class Solution {
 public:
-    int coinChange(vector<int>& coins, int amount) {
-        vector<int> dp(amount + 1, INT_MAX);
-        dp[0] = 0;
-        for (int i = 1; i <= amount; ++i) {
-            for (int itr : coins) {
-                if (i - itr >= 0 && dp[i - itr] < INT_MAX)
-                    dp[i] = min(dp[i], dp[i - itr] + 1);
+    int lengthOfLIS(vector<int>& nums) {
+        vector<int> dp(nums.size(), 1);  // longest increase substring end with nums[i];
+        for (int i = 1; i < nums.size(); i++) {
+            for (int j = i - 1; j >=0 ; --j) {
+                if (nums[i] > nums[j]) {
+                    dp[i] = max(dp[i], dp[j] + 1);
+                }
             }
         }
-        if (dp.back() == INT_MAX)
-            return -1;
-        return dp.back();
+        return *max_element(dp.begin(), dp.end());
     }
 };

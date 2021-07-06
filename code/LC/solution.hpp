@@ -295,17 +295,35 @@ using namespace std;
 //     }
 // };
 
+// class Solution {
+// public:
+//     int lengthOfLIS(vector<int>& nums) {
+//         vector<int> dp(nums.size(), 1);  // longest increase substring end with nums[i];
+//         for (int i = 1; i < nums.size(); i++) {
+//             for (int j = i - 1; j >=0 ; --j) {
+//                 if (nums[i] > nums[j]) {
+//                     dp[i] = max(dp[i], dp[j] + 1);
+//                 }
+//             }
+//         }
+//         return *max_element(dp.begin(), dp.end());
+//     }
+// };
+
 class Solution {
+    unordered_set<int> hash;
 public:
-    int lengthOfLIS(vector<int>& nums) {
-        vector<int> dp(nums.size(), 1);  // longest increase substring end with nums[i];
-        for (int i = 1; i < nums.size(); i++) {
-            for (int j = i - 1; j >=0 ; --j) {
-                if (nums[i] > nums[j]) {
-                    dp[i] = max(dp[i], dp[j] + 1);
-                }
-            }
+    bool isHappy(int n) {
+        int cur = 0;
+        while (n > 0) {
+            cur += (n % 10) * (n % 10);
+            n /= 10;
         }
-        return *max_element(dp.begin(), dp.end());
+        if (cur == 1)
+            return true;
+        if (hash.count(cur))
+            return false;
+        hash.insert(cur);
+        return isHappy(cur);
     }
 };

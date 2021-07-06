@@ -263,17 +263,34 @@ using namespace std;
 //     }
 // };
 
+// class Solution {
+// public:
+//     bool canJump(vector<int>& nums) {
+//         int right = 0;
+//         for (int i = 0; i < nums.size(); ++i) {
+//             if (i <= right) {
+//                 right = std::max(right, i + nums[i]);
+//                 if (right >= nums.size() - 1)
+//                     return true;
+//             }
+//         }
+//         return false;
+//     }
+// };
+
 class Solution {
 public:
-    bool canJump(vector<int>& nums) {
-        int right = 0;
-        for (int i = 0; i < nums.size(); ++i) {
-            if (i <= right) {
-                right = std::max(right, i + nums[i]);
-                if (right >= nums.size() - 1)
-                    return true;
+    int coinChange(vector<int>& coins, int amount) {
+        vector<int> dp(amount + 1, INT_MAX);
+        dp[0] = 0;
+        for (int i = 1; i <= amount; ++i) {
+            for (int itr : coins) {
+                if (i - itr >= 0 && dp[i - itr] < INT_MAX)
+                    dp[i] = min(dp[i], dp[i - itr] + 1);
             }
         }
-        return false;
+        if (dp.back() == INT_MAX)
+            return -1;
+        return dp.back();
     }
 };

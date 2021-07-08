@@ -339,20 +339,41 @@ using namespace std;
 //     }
 // };
 
+// class Solution {
+// public:
+//     double myPow(double x, int n) {
+//         if (n == 0)
+//             return 1.0;
+//         if (n < 0)
+//             return 1.0 / myPow(x, -n);
+//         double res = 1.0;
+//         while (n > 0) {
+//             if (n % 2 == 1)
+//                 res *= x;
+//             x *= x;
+//             n /= 2;
+//         }
+//         return res;
+//     }
+// };
+
 class Solution {
 public:
-    double myPow(double x, int n) {
-        if (n == 0)
-            return 1.0;
-        if (n < 0)
-            return 1.0 / myPow(x, -n);
-        double res = 1.0;
-        while (n > 0) {
-            if (n % 2 == 1)
-                res *= x;
-            x *= x;
-            n /= 2;
+    int mySqrt(int x) {
+        int left = 1, right = x / 2;
+        if (x < 2)
+            return x;
+        while (right - left > 1) {
+            int mid = left + (right - left) / 2;
+            if (mid * mid == x)
+                return mid;
+            else if (mid * mid < x) 
+                left = mid;
+            else
+                right = mid - 1;
         }
-        return res;
+        if (right * right <= x)
+            return right;
+        return left;
     }
 };

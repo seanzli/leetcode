@@ -310,20 +310,31 @@ using namespace std;
 //     }
 // };
 
+// class Solution {
+//     unordered_set<int> hash;
+// public:
+//     bool isHappy(int n) {
+//         int cur = 0;
+//         while (n > 0) {
+//             cur += (n % 10) * (n % 10);
+//             n /= 10;
+//         }
+//         if (cur == 1)
+//             return true;
+//         if (hash.count(cur))
+//             return false;
+//         hash.insert(cur);
+//         return isHappy(cur);
+//     }
+// };
+
 class Solution {
-    unordered_set<int> hash;
 public:
-    bool isHappy(int n) {
-        int cur = 0;
-        while (n > 0) {
-            cur += (n % 10) * (n % 10);
-            n /= 10;
+    int titleToNumber(string columnTitle) {
+        long res = 0;
+        for (int cur : columnTitle) {
+            res = res *26 + cur - 'A' + 1;
         }
-        if (cur == 1)
-            return true;
-        if (hash.count(cur))
-            return false;
-        hash.insert(cur);
-        return isHappy(cur);
+        return res;
     }
 };

@@ -357,23 +357,74 @@ using namespace std;
 //     }
 // };
 
-class Solution {
+// class Solution {
+// public:
+//     int mySqrt(int x) {
+//         int left = 1, right = x / 2;
+//         if (x < 2)
+//             return x;
+//         while (right - left > 1) {
+//             int mid = left + (right - left) / 2;
+//             if (mid * mid == x)
+//                 return mid;
+//             else if (mid * mid < x) 
+//                 left = mid;
+//             else
+//                 right = mid - 1;
+//         }
+//         if (right * right <= x)
+//             return right;
+//         return left;
+//     }
+// };
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+class Codec {
 public:
-    int mySqrt(int x) {
-        int left = 1, right = x / 2;
-        if (x < 2)
-            return x;
-        while (right - left > 1) {
-            int mid = left + (right - left) / 2;
-            if (mid * mid == x)
-                return mid;
-            else if (mid * mid < x) 
-                left = mid;
-            else
-                right = mid - 1;
+
+    // Encodes a tree to a single string.
+    string serialize(TreeNode* root) {
+        if (root == nullptr)
+            return ",null";
+        return "," + to_string(root->val) + serialize(root->left) + serialize(root->right);
+    }
+
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(string data) {
+        int idx = 1;
+        return deserialize(data, idx);
+    }
+
+private:
+    bool getNum(const string& str, int& idx, int& out) {
+        string res = "";
+        for (idx; idx < str.size(); idx++) {
+            if (str[idx] == ',')
+                break;
+            res.push_back(str[idx]);
         }
-        if (right * right <= x)
-            return right;
-        return left;
+        idx++;
+        if (res == "null")
+            return false;
+        out = stoi(res);
+        return true;
+    }
+
+    TreeNode* deserialize(const string& data, int& idx) {
+        if (idx >= data.size())
+            return nullptr;
+        int val = 0;
+        if (getNum(data, idx, val) == false)
+            return nullptr;
+        TreeNode * root = new TreeNode(val);
+        root->left = deserialize(data, idx);
+        root->right = deserialize(data, idx);
+        return root;
     }
 };

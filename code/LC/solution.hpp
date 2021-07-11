@@ -385,46 +385,59 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-class Codec {
+// class Codec {
+// public:
+
+//     // Encodes a tree to a single string.
+//     string serialize(TreeNode* root) {
+//         if (root == nullptr)
+//             return ",null";
+//         return "," + to_string(root->val) + serialize(root->left) + serialize(root->right);
+//     }
+
+//     // Decodes your encoded data to tree.
+//     TreeNode* deserialize(string data) {
+//         int idx = 1;
+//         return deserialize(data, idx);
+//     }
+
+// private:
+//     bool getNum(const string& str, int& idx, int& out) {
+//         string res = "";
+//         for (idx; idx < str.size(); idx++) {
+//             if (str[idx] == ',')
+//                 break;
+//             res.push_back(str[idx]);
+//         }
+//         idx++;
+//         if (res == "null")
+//             return false;
+//         out = stoi(res);
+//         return true;
+//     }
+
+//     TreeNode* deserialize(const string& data, int& idx) {
+//         if (idx >= data.size())
+//             return nullptr;
+//         int val = 0;
+//         if (getNum(data, idx, val) == false)
+//             return nullptr;
+//         TreeNode * root = new TreeNode(val);
+//         root->left = deserialize(data, idx);
+//         root->right = deserialize(data, idx);
+//         return root;
+//     }
+// };
+
+class Solution {
 public:
-
-    // Encodes a tree to a single string.
-    string serialize(TreeNode* root) {
-        if (root == nullptr)
-            return ",null";
-        return "," + to_string(root->val) + serialize(root->left) + serialize(root->right);
-    }
-
-    // Decodes your encoded data to tree.
-    TreeNode* deserialize(string data) {
-        int idx = 1;
-        return deserialize(data, idx);
-    }
-
-private:
-    bool getNum(const string& str, int& idx, int& out) {
-        string res = "";
-        for (idx; idx < str.size(); idx++) {
-            if (str[idx] == ',')
-                break;
-            res.push_back(str[idx]);
+    int hIndex(vector<int>& citations) {
+        sort(citations.begin(), citations.end());
+        int h = 0, i = citations.size() - 1;
+        while (i >= 0 && citations[i] > h) {
+            h++;
+            i--;
         }
-        idx++;
-        if (res == "null")
-            return false;
-        out = stoi(res);
-        return true;
-    }
-
-    TreeNode* deserialize(const string& data, int& idx) {
-        if (idx >= data.size())
-            return nullptr;
-        int val = 0;
-        if (getNum(data, idx, val) == false)
-            return nullptr;
-        TreeNode * root = new TreeNode(val);
-        root->left = deserialize(data, idx);
-        root->right = deserialize(data, idx);
-        return root;
+        return h;
     }
 };

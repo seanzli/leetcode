@@ -429,15 +429,31 @@ struct TreeNode {
 //     }
 // };
 
+// class Solution {
+// public:
+//     int hIndex(vector<int>& citations) {
+//         sort(citations.begin(), citations.end());
+//         int h = 0, i = citations.size() - 1;
+//         while (i >= 0 && citations[i] > h) {
+//             h++;
+//             i--;
+//         }
+//         return h;
+//     }
+// };
+
 class Solution {
 public:
-    int hIndex(vector<int>& citations) {
-        sort(citations.begin(), citations.end());
-        int h = 0, i = citations.size() - 1;
-        while (i >= 0 && citations[i] > h) {
-            h++;
-            i--;
+    vector<int> productExceptSelf(vector<int>& nums) {
+        vector<int> prod = nums;  // 0 -> i product
+        for (int i = 1; i < nums.size(); i++)
+            prod[i] = prod[i] * prod[i - 1];
+        int backword = 1;
+        for (int i = nums.size() - 1; i > 0; i--) {
+            prod[i] = prod[i - 1] * backword;
+            backword *= nums[i];
         }
-        return h;
+        prod[0] = backword;
+        return prod;
     }
 };

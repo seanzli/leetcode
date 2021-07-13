@@ -492,24 +492,40 @@ struct TreeNode {
 //     }
 // };
 
+// class Solution {
+//     unordered_map<int, int> hash; // num -> count;
+// public:
+//     int fourSumCount(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3, vector<int>& nums4) {
+//         int num = nums1.size();
+//         for (int i = 0; i < num; i++) {
+//             for (int j = 0; j < num; j++) {
+//                 hash[nums1[i] + nums2[j]]++;
+//             }
+//         }
+//         int res = 0;
+//         for (int i = 0; i < num; i++) {
+//             for (int j = 0; j < num; j++) {
+//                 if (hash.find(0 - nums3[i] - nums4[j]) == hash.end())
+//                     continue;
+//                 res += hash[0 - nums3[i] - nums4[j]];
+//             }
+//         }
+//         return res;
+//     }
+// };
+
 class Solution {
-    unordered_map<int, int> hash; // num -> count;
 public:
-    int fourSumCount(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3, vector<int>& nums4) {
-        int num = nums1.size();
-        for (int i = 0; i < num; i++) {
-            for (int j = 0; j < num; j++) {
-                hash[nums1[i] + nums2[j]]++;
-            }
+    int maxArea(vector<int>& height) {
+        int left = 0, right = height.size() - 1;
+        int max_value = 0;
+        while (left < right) {
+            max_value = max(max_value, (right - left)*(min(height[left], height[right])));
+            if (height[left] > height[right])
+                right--;
+            else
+                left++;
         }
-        int res = 0;
-        for (int i = 0; i < num; i++) {
-            for (int j = 0; j < num; j++) {
-                if (hash.find(0 - nums3[i] - nums4[j]) == hash.end())
-                    continue;
-                res += hash[0 - nums3[i] - nums4[j]];
-            }
-        }
-        return res;
+        return max_value;
     }
 };

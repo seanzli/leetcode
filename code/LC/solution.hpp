@@ -458,36 +458,58 @@ struct TreeNode {
 //     }
 // };
 
-class Solution {
-public:
-    vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        if (matrix.size() == 0 || matrix[0].size() == 0) {
-            return {};
-        }
+// class Solution {
+// public:
+//     vector<int> spiralOrder(vector<vector<int>>& matrix) {
+//         if (matrix.size() == 0 || matrix[0].size() == 0) {
+//             return {};
+//         }
 
-        int rows = matrix.size(), columns = matrix[0].size();
-        vector<int> order;
-        int left = 0, right = columns - 1, top = 0, bottom = rows - 1;
-        while (left <= right && top <= bottom) {
-            for (int column = left; column <= right; column++) {
-                order.push_back(matrix[top][column]);
+//         int rows = matrix.size(), columns = matrix[0].size();
+//         vector<int> order;
+//         int left = 0, right = columns - 1, top = 0, bottom = rows - 1;
+//         while (left <= right && top <= bottom) {
+//             for (int column = left; column <= right; column++) {
+//                 order.push_back(matrix[top][column]);
+//             }
+//             for (int row = top + 1; row <= bottom; row++) {
+//                 order.push_back(matrix[row][right]);
+//             }
+//             if (left < right && top < bottom) {
+//                 for (int column = right - 1; column > left; column--) {
+//                     order.push_back(matrix[bottom][column]);
+//                 }
+//                 for (int row = bottom; row > top; row--) {
+//                     order.push_back(matrix[row][left]);
+//                 }
+//             }
+//             left++;
+//             right--;
+//             top++;
+//             bottom--;
+//         }
+//         return order;
+//     }
+// };
+
+class Solution {
+    unordered_map<int, int> hash; // num -> count;
+public:
+    int fourSumCount(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3, vector<int>& nums4) {
+        int num = nums1.size();
+        for (int i = 0; i < num; i++) {
+            for (int j = 0; j < num; j++) {
+                hash[nums1[i] + nums2[j]]++;
             }
-            for (int row = top + 1; row <= bottom; row++) {
-                order.push_back(matrix[row][right]);
-            }
-            if (left < right && top < bottom) {
-                for (int column = right - 1; column > left; column--) {
-                    order.push_back(matrix[bottom][column]);
-                }
-                for (int row = bottom; row > top; row--) {
-                    order.push_back(matrix[row][left]);
-                }
-            }
-            left++;
-            right--;
-            top++;
-            bottom--;
         }
-        return order;
+        int res = 0;
+        for (int i = 0; i < num; i++) {
+            for (int j = 0; j < num; j++) {
+                if (hash.find(0 - nums3[i] - nums4[j]) == hash.end())
+                    continue;
+                res += hash[0 - nums3[i] - nums4[j]];
+            }
+        }
+        return res;
     }
 };

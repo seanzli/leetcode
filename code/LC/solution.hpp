@@ -442,18 +442,52 @@ struct TreeNode {
 //     }
 // };
 
+// class Solution {
+// public:
+//     vector<int> productExceptSelf(vector<int>& nums) {
+//         vector<int> prod = nums;  // 0 -> i product
+//         for (int i = 1; i < nums.size(); i++)
+//             prod[i] = prod[i] * prod[i - 1];
+//         int backword = 1;
+//         for (int i = nums.size() - 1; i > 0; i--) {
+//             prod[i] = prod[i - 1] * backword;
+//             backword *= nums[i];
+//         }
+//         prod[0] = backword;
+//         return prod;
+//     }
+// };
+
 class Solution {
 public:
-    vector<int> productExceptSelf(vector<int>& nums) {
-        vector<int> prod = nums;  // 0 -> i product
-        for (int i = 1; i < nums.size(); i++)
-            prod[i] = prod[i] * prod[i - 1];
-        int backword = 1;
-        for (int i = nums.size() - 1; i > 0; i--) {
-            prod[i] = prod[i - 1] * backword;
-            backword *= nums[i];
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        if (matrix.size() == 0 || matrix[0].size() == 0) {
+            return {};
         }
-        prod[0] = backword;
-        return prod;
+
+        int rows = matrix.size(), columns = matrix[0].size();
+        vector<int> order;
+        int left = 0, right = columns - 1, top = 0, bottom = rows - 1;
+        while (left <= right && top <= bottom) {
+            for (int column = left; column <= right; column++) {
+                order.push_back(matrix[top][column]);
+            }
+            for (int row = top + 1; row <= bottom; row++) {
+                order.push_back(matrix[row][right]);
+            }
+            if (left < right && top < bottom) {
+                for (int column = right - 1; column > left; column--) {
+                    order.push_back(matrix[bottom][column]);
+                }
+                for (int row = bottom; row > top; row--) {
+                    order.push_back(matrix[row][left]);
+                }
+            }
+            left++;
+            right--;
+            top++;
+            bottom--;
+        }
+        return order;
     }
 };

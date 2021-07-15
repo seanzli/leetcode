@@ -1,4 +1,3 @@
-
 #include "../code/LC/solution.hpp"
 
 #include <iostream>
@@ -9,7 +8,7 @@ int main(int argc, char* argv[])
 
     vector<int> s = {1,2,3,4};
 
-    test->productExceptSelf(s);
+    test->maxArea(s);
 
     return 0;
 }

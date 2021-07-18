@@ -514,18 +514,37 @@ struct TreeNode {
 //     }
 // };
 
+// class Solution {
+// public:
+//     int maxArea(vector<int>& height) {
+//         int left = 0, right = height.size() - 1;
+//         int max_value = 0;
+//         while (left < right) {
+//             max_value = max(max_value, (right - left)*(min(height[left], height[right])));
+//             if (height[left] > height[right])
+//                 right--;
+//             else
+//                 left++;
+//         }
+//         return max_value;
+//     }
+// };
+
 class Solution {
 public:
-    int maxArea(vector<int>& height) {
-        int left = 0, right = height.size() - 1;
-        int max_value = 0;
-        while (left < right) {
-            max_value = max(max_value, (right - left)*(min(height[left], height[right])));
-            if (height[left] > height[right])
-                right--;
-            else
-                left++;
+    int equalSubstring(string s, string t, int maxCost) {
+        int left = 0, right = 0, cost = 0, max_count = 0;
+        while (right < t.size()) {
+            cost += abs(s[right] - t[right]);
+            if (cost > maxCost) {
+                while (left <= right && cost > maxCost) {
+                    cost -= abs(s[left] - t[left]);
+                    left++;
+                }
+            }
+            max_count = max(max_count, right - left + 1);
+            right++;
         }
-        return max_value;
+        return max_count;
     }
 };

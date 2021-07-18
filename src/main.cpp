@@ -6,9 +6,9 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    vector<int> s = {1,2,3,4};
+    // vector<int> s = {1,2,3,4};
 
-    test->maxArea(s);
+    test->equalSubstring("krrgw", "zjxss", 19);
 
     return 0;
 }

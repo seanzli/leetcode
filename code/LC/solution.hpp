@@ -549,6 +549,58 @@ using namespace std;
 //     }
 // };
 
+// struct ListNode {
+//     int val;
+//     ListNode *next;
+//     ListNode() : val(0), next(nullptr) {}
+//     ListNode(int x) : val(x), next(nullptr) {}
+//     ListNode(int x, ListNode *next) : val(x), next(next) {}
+// };
+
+// class Solution {
+// public:
+//     ListNode* mergeKLists(vector<ListNode*>& lists) {
+//         return mergeKLists(lists, 0, lists.size() - 1);
+//     }
+//     ListNode* mergeKLists(vector<ListNode*>& lists, const int& left, const int & right) {
+//         if (left > right)
+//             return nullptr;
+//         if (right == left)
+//             return lists[left];
+//         else if (left + 1 == right) {
+//             return mergeKLists(lists[left], lists[right]);
+//         } else {
+//             int mid = left + (right - left) / 2;
+//             return mergeKLists(mergeKLists(lists, left, mid), mergeKLists(lists, mid + 1, right));
+//         }
+//         return nullptr;
+//     }
+
+//     ListNode* mergeKLists(ListNode* llist, ListNode* rlist) {
+//         ListNode* res = new ListNode(0);
+//         ListNode* cur = res;
+//         while (llist || rlist) {
+//             if (llist == nullptr) {
+//                 cur->next = new ListNode(rlist->val);
+//                 rlist = rlist->next;
+//             } else if (rlist == nullptr) {
+//                 cur->next = new ListNode(llist->val);
+//                 llist = llist->next;
+//             } else if (rlist->val < llist->val) {
+//                 cur->next = new ListNode(rlist->val);
+//                 rlist = rlist->next;
+//             } else {
+//                 cur->next = new ListNode(llist->val);
+//                 llist = llist->next;
+//             }
+//             cur = cur->next;
+//         }
+//         return res->next;
+//     }
+// };
+
+#include <map>
+
 struct ListNode {
     int val;
     ListNode *next;
@@ -559,42 +611,22 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* mergeKLists(vector<ListNode*>& lists) {
-        return mergeKLists(lists, 0, lists.size() - 1);
-    }
-    ListNode* mergeKLists(vector<ListNode*>& lists, const int& left, const int & right) {
-        if (left > right)
+    ListNode* sortList(ListNode* head) {
+        if (head == nullptr)
             return nullptr;
-        if (right == left)
-            return lists[left];
-        else if (left + 1 == right) {
-            return mergeKLists(lists[left], lists[right]);
-        } else {
-            int mid = left + (right - left) / 2;
-            return mergeKLists(mergeKLists(lists, left, mid), mergeKLists(lists, mid + 1, right));
-        }
-        return nullptr;
-    }
 
-    ListNode* mergeKLists(ListNode* llist, ListNode* rlist) {
-        ListNode* res = new ListNode(0);
-        ListNode* cur = res;
-        while (llist || rlist) {
-            if (llist == nullptr) {
-                cur->next = new ListNode(rlist->val);
-                rlist = rlist->next;
-            } else if (rlist == nullptr) {
-                cur->next = new ListNode(llist->val);
-                llist = llist->next;
-            } else if (rlist->val < llist->val) {
-                cur->next = new ListNode(rlist->val);
-                rlist = rlist->next;
-            } else {
-                cur->next = new ListNode(llist->val);
-                llist = llist->next;
-            }
+        multimap<int, ListNode*, ::greater<int>> hash;
+        ListNode* cur = head;
+        while (cur) {
+            hash.insert(make_pair(cur->val, cur));
             cur = cur->next;
         }
-        return res->next;
+
+        cur = nullptr;
+        for (auto itr = hash.begin(); itr != hash.end(); itr++) {
+            itr->second->next = cur;
+            cur = itr->second;
+        }
+        return cur;
     }
 };

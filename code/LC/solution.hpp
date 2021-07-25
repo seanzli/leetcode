@@ -632,35 +632,67 @@ using namespace std;
 // };
 
 
+// class Solution {
+// public:
+//     vector<int> restoreArray(vector<vector<int>>& adjacentPairs) {
+//         unordered_map<int, vector<int>> hash;
+//         for (auto itr : adjacentPairs) {
+//             hash[itr[0]].push_back(itr[1]);
+//             hash[itr[1]].push_back(itr[0]);
+//         }
+//         int head = 0;
+//         for (auto itr = hash.begin(); itr != hash.end(); itr++) {
+//             if (itr->second.size() == 1) {
+//                 head = itr->first;
+//                 break;
+//             }
+//         }
+//         vector<int> res;
+//         unordered_set<int> visited;
+//         visited.insert(head);
+//         res.push_back(head);
+//         while(res.size() < hash.size()) {
+//             for (int i = 0; i < 2; ++i) {
+//                 if (visited.count(hash[head][i]) == 0) {
+//                     res.push_back(hash[head][i]);
+//                     visited.insert(hash[head][i]);
+//                     head = hash[head][i];
+//                     break;
+//                 }
+//             }
+//         }
+//         return res;
+//     }
+// };
+
 class Solution {
 public:
-    vector<int> restoreArray(vector<vector<int>>& adjacentPairs) {
-        unordered_map<int, vector<int>> hash;
-        for (auto itr : adjacentPairs) {
-            hash[itr[0]].push_back(itr[1]);
-            hash[itr[1]].push_back(itr[0]);
-        }
-        int head = 0;
-        for (auto itr = hash.begin(); itr != hash.end(); itr++) {
-            if (itr->second.size() == 1) {
-                head = itr->first;
-                break;
-            }
-        }
-        vector<int> res;
-        unordered_set<int> visited;
-        visited.insert(head);
-        res.push_back(head);
-        while(res.size() < hash.size()) {
-            for (int i = 0; i < 2; ++i) {
-                if (visited.count(hash[head][i]) == 0) {
-                    res.push_back(hash[head][i]);
-                    visited.insert(hash[head][i]);
-                    head = hash[head][i];
-                    break;
+    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
+        unordered_set<string> hash(wordList.begin(), wordList.end());
+        unordered_set<string> visited;
+        queue<string> que;
+        if (hash.count(endWord) == 0)
+            return 0;
+        que.push(beginWord);
+        int count = 1;
+        while (que.size()) {
+            int n = que.size();
+            for (int i = 0; i < n; ++i) {
+                string cur = que.front(); que.pop();
+                visited.insert(cur);
+                if (cur == endWord)
+                    return count;
+                for (int j = 0; j < cur.size(); ++j) {
+                    string tmp = cur;
+                    for (int k = 0; k < 26; k++) {
+                        tmp[j] = 'a' + k;
+                        if (visited.count(tmp) == 0 && hash.count(tmp) == 1)
+                            que.push(tmp);
+                    }
                 }
             }
+            ++count;
         }
-        return res;
+        return count;
     }
 };

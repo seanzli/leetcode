@@ -7,8 +7,9 @@ int main(int argc, char* argv[])
     Solution *test = new Solution();
 
     // vector<int> s = {1,2,3,4};
+    vector<string> wordlist = {"hot","dot","dog","lot","log","cog"};
 
-    test->equalSubstring("krrgw", "zjxss", 19);
+    test->ladderLength("hit", "cog", wordlist);
 
     return 0;
 }

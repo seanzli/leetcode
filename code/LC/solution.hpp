@@ -601,32 +601,66 @@ using namespace std;
 
 #include <map>
 
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
+// struct ListNode {
+//     int val;
+//     ListNode *next;
+//     ListNode() : val(0), next(nullptr) {}
+//     ListNode(int x) : val(x), next(nullptr) {}
+//     ListNode(int x, ListNode *next) : val(x), next(next) {}
+// };
+
+// class Solution {
+// public:
+//     ListNode* sortList(ListNode* head) {
+//         if (head == nullptr)
+//             return nullptr;
+
+//         multimap<int, ListNode*, ::greater<int>> hash;
+//         ListNode* cur = head;
+//         while (cur) {
+//             hash.insert(make_pair(cur->val, cur));
+//             cur = cur->next;
+//         }
+
+//         cur = nullptr;
+//         for (auto itr = hash.begin(); itr != hash.end(); itr++) {
+//             itr->second->next = cur;
+//             cur = itr->second;
+//         }
+//         return cur;
+//     }
+// };
+
 
 class Solution {
 public:
-    ListNode* sortList(ListNode* head) {
-        if (head == nullptr)
-            return nullptr;
-
-        multimap<int, ListNode*, ::greater<int>> hash;
-        ListNode* cur = head;
-        while (cur) {
-            hash.insert(make_pair(cur->val, cur));
-            cur = cur->next;
+    vector<int> restoreArray(vector<vector<int>>& adjacentPairs) {
+        unordered_map<int, vector<int>> hash;
+        for (auto itr : adjacentPairs) {
+            hash[itr[0]].push_back(itr[1]);
+            hash[itr[1]].push_back(itr[0]);
         }
-
-        cur = nullptr;
+        int head = 0;
         for (auto itr = hash.begin(); itr != hash.end(); itr++) {
-            itr->second->next = cur;
-            cur = itr->second;
+            if (itr->second.size() == 1) {
+                head = itr->first;
+                break;
+            }
         }
-        return cur;
+        vector<int> res;
+        unordered_set<int> visited;
+        visited.insert(head);
+        res.push_back(head);
+        while(res.size() < hash.size()) {
+            for (int i = 0; i < 2; ++i) {
+                if (visited.count(hash[head][i]) == 0) {
+                    res.push_back(hash[head][i]);
+                    visited.insert(hash[head][i]);
+                    head = hash[head][i];
+                    break;
+                }
+            }
+        }
+        return res;
     }
 };

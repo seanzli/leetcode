@@ -1,4 +1,4 @@
-#include "../code/LC/solution.hpp"
+#include "../code863/solution.hpp"
 
 #include <iostream>
 
@@ -6,10 +6,17 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    // vector<int> s = {1,2,3,4};
-    vector<string> wordlist = {"hot","dot","dog","lot","log","cog"};
+    TreeNode* root = new TreeNode(3);
+    root->left = new TreeNode(5);
+    root->left->left = new TreeNode(6);
+    root->left->right = new TreeNode(2);
+    root->left->right->left = new TreeNode(7);
+    root->left->right->right = new TreeNode(4);
+    root->right = new TreeNode(1);
+    root->right->left = new TreeNode(0);
+    root->right->right = new TreeNode(8);
 
-    test->ladderLength("hit", "cog", wordlist);
+    test->distanceK(root, root->left, 2);
 
     return 0;
 }

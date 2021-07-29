@@ -665,34 +665,72 @@ using namespace std;
 //     }
 // };
 
+// class Solution {
+// public:
+//     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
+//         unordered_set<string> hash(wordList.begin(), wordList.end());
+//         unordered_set<string> visited;
+//         queue<string> que;
+//         if (hash.count(endWord) == 0)
+//             return 0;
+//         que.push(beginWord);
+//         int count = 1;
+//         while (que.size()) {
+//             int n = que.size();
+//             for (int i = 0; i < n; ++i) {
+//                 string cur = que.front(); que.pop();
+//                 visited.insert(cur);
+//                 if (cur == endWord)
+//                     return count;
+//                 for (int j = 0; j < cur.size(); ++j) {
+//                     string tmp = cur;
+//                     for (int k = 0; k < 26; k++) {
+//                         tmp[j] = 'a' + k;
+//                         if (visited.count(tmp) == 0 && hash.count(tmp) == 1)
+//                             que.push(tmp);
+//                     }
+//                 }
+//             }
+//             ++count;
+//         }
+//         return count;
+//     }
+// };
+
 class Solution {
+    int row, col;
 public:
-    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
-        unordered_set<string> hash(wordList.begin(), wordList.end());
-        unordered_set<string> visited;
-        queue<string> que;
-        if (hash.count(endWord) == 0)
-            return 0;
-        que.push(beginWord);
-        int count = 1;
-        while (que.size()) {
-            int n = que.size();
-            for (int i = 0; i < n; ++i) {
-                string cur = que.front(); que.pop();
-                visited.insert(cur);
-                if (cur == endWord)
-                    return count;
-                for (int j = 0; j < cur.size(); ++j) {
-                    string tmp = cur;
-                    for (int k = 0; k < 26; k++) {
-                        tmp[j] = 'a' + k;
-                        if (visited.count(tmp) == 0 && hash.count(tmp) == 1)
-                            que.push(tmp);
-                    }
-                }
-            }
-            ++count;
+    void solve(vector<vector<char>>& board) {
+        row = board.size();
+        col = board[0].size();
+        for (int i = 0; i < row; ++i) {
+            check(board, i, 0);
+            check(board, i, col-1);
         }
-        return count;
+        for (int j = 0; j < col; ++j) {
+            check(board, 0, j);
+            check(board, row-1, j);
+        }
+        for (int i = 0; i < row; ++i) {
+            for (int j = 0; j < col; ++j) {
+                if (board[i][j]=='O')
+                    board[i][j] = 'X';
+                else if (board[i][j]=='A')
+                    board[i][j] = 'O';
+            }
+        }
+        return;
+    }
+    void check(vector<vector<char>>& board, const int i, const int j) {
+        if (i < 0 || i >= row || j < 0 || j >= col || board[i][j] == 'X')
+            return;
+        if (board[i][j] == 'O') {
+            board[i][j] = 'A';
+            check(board, i + 1, j);
+            check(board, i - 1, j);
+            check(board, i, j + 1);
+            check(board, i, j - 1);
+        }
+        return;
     }
 };

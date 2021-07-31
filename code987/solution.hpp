@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: Sean
  * @Date: 2021-07-31 15:26:01
- * @LastEditTime: 2021-07-31 15:50:25
+ * @LastEditTime: 2021-07-31 15:53:09
  * @LastEditors: Sean
  * @Reference: 
  */
@@ -25,22 +25,23 @@ struct TreeNode {
 struct T {
     int row, col, val;
     T(int _row, int _col, int _val) : row(_row), col(_col), val(_val) {}
-    bool operator<(const T& a) {
-        if (a.col < this->col) 
-            return true;
-        if (a.col > this->col)
-            return false;
-        if (a.row < this->row)
-            return true;
-        if (a.row > this->row)
-            return false;
-        if (a.val < this->val)
-            return true;
-        if (a.val > this->val)
-            return false;
-        return true;
-    }
 };
+
+bool operator<(const T& b, const T& a) {
+    if (a.col < b.col) 
+        return true;
+    if (a.col > b.col)
+        return false;
+    if (a.row < b.row)
+        return true;
+    if (a.row > b.row)
+        return false;
+    if (a.val < b.val)
+        return true;
+    if (a.val > b.val)
+        return false;
+    return true;
+}
 
 class Solution {
 public:

@@ -697,40 +697,76 @@ using namespace std;
 //     }
 // };
 
+// class Solution {
+//     int row, col;
+// public:
+//     void solve(vector<vector<char>>& board) {
+//         row = board.size();
+//         col = board[0].size();
+//         for (int i = 0; i < row; ++i) {
+//             check(board, i, 0);
+//             check(board, i, col-1);
+//         }
+//         for (int j = 0; j < col; ++j) {
+//             check(board, 0, j);
+//             check(board, row-1, j);
+//         }
+//         for (int i = 0; i < row; ++i) {
+//             for (int j = 0; j < col; ++j) {
+//                 if (board[i][j]=='O')
+//                     board[i][j] = 'X';
+//                 else if (board[i][j]=='A')
+//                     board[i][j] = 'O';
+//             }
+//         }
+//         return;
+//     }
+//     void check(vector<vector<char>>& board, const int i, const int j) {
+//         if (i < 0 || i >= row || j < 0 || j >= col || board[i][j] == 'X')
+//             return;
+//         if (board[i][j] == 'O') {
+//             board[i][j] = 'A';
+//             check(board, i + 1, j);
+//             check(board, i - 1, j);
+//             check(board, i, j + 1);
+//             check(board, i, j - 1);
+//         }
+//         return;
+//     }
+// };
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
 class Solution {
-    int row, col;
 public:
-    void solve(vector<vector<char>>& board) {
-        row = board.size();
-        col = board[0].size();
-        for (int i = 0; i < row; ++i) {
-            check(board, i, 0);
-            check(board, i, col-1);
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        vector<TreeNode*> trace_p, trace_q;
+        dfs(root, p->val, trace_p);
+        dfs(root, q->val, trace_q);
+        TreeNode* res = root;
+        for (int i = 0; i < trace_p.size() && i < trace_q.size(); ++i) {
+            if (trace_q[i] == trace_p[i])
+                res = trace_q[i];
+            else
+                break;
         }
-        for (int j = 0; j < col; ++j) {
-            check(board, 0, j);
-            check(board, row-1, j);
-        }
-        for (int i = 0; i < row; ++i) {
-            for (int j = 0; j < col; ++j) {
-                if (board[i][j]=='O')
-                    board[i][j] = 'X';
-                else if (board[i][j]=='A')
-                    board[i][j] = 'O';
-            }
-        }
-        return;
+        return res;
     }
-    void check(vector<vector<char>>& board, const int i, const int j) {
-        if (i < 0 || i >= row || j < 0 || j >= col || board[i][j] == 'X')
-            return;
-        if (board[i][j] == 'O') {
-            board[i][j] = 'A';
-            check(board, i + 1, j);
-            check(board, i - 1, j);
-            check(board, i, j + 1);
-            check(board, i, j - 1);
-        }
-        return;
+
+    bool dfs(TreeNode* node, int val, vector<TreeNode*>& vec) {
+        if (node == nullptr)
+            return false;
+        vec.push_back(node);
+        if (node->val == val)
+            return true;
+        if (dfs(node->left, val, vec) || dfs(node->right, val, vec))
+            return true;
+        vec.pop_back();
+        return false;
     }
 };

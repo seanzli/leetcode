@@ -771,28 +771,58 @@ using namespace std;
 //     }
 // };
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+// struct TreeNode {
+//     int val;
+//     TreeNode *left;
+//     TreeNode *right;
+//     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+//     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+//     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+// };
+
+// class Solution {
+//     int max_path = INT_MIN;
+// public:
+//     int maxPathSum(TreeNode* root) {
+//         singlePathSum(root);
+//         return max_path;
+//     }
+//     int singlePathSum(TreeNode* root) {
+//         if (root == nullptr)
+//             return 0;
+//         int left = singlePathSum(root->left);
+//         int right = singlePathSum(root->right);
+//         max_path = max(max_path, root->val + left + right);
+//         return root->val + max(left, right);
+//     }
+// };
 
 class Solution {
-    int max_path = INT_MIN;
 public:
-    int maxPathSum(TreeNode* root) {
-        singlePathSum(root);
-        return max_path;
+    int findCircleNum(vector<vector<int>>& isConnected) {
+        int n = isConnected.size();
+        int count = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (isConnected[i][j] == 1) {
+                    dfs(isConnected, i, j, n);
+                    count++;
+                }
+            }
+        }
+        return count;
     }
-    int singlePathSum(TreeNode* root) {
-        if (root == nullptr)
-            return 0;
-        int left = singlePathSum(root->left);
-        int right = singlePathSum(root->right);
-        max_path = max(max_path, root->val + left + right);
-        return root->val + max(left, right);
+    void dfs(vector<vector<int>>& isConnected, int row, int col, const int n) {
+        for (int i = 0; i < n; i++)
+        {
+            if (isConnected[i][col] == 1){
+                isConnected[i][col] = 0;
+                dfs(isConnected, i, col, n);
+            }
+            if (isConnected[row][i] == 1){
+                isConnected[row][i] = 0;
+                dfs(isConnected, row, i, n);
+            }
+        }
     }
 };

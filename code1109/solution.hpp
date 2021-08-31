@@ -38,3 +38,20 @@ public:
         return res;
     }
 };
+
+class Solution {
+public:
+    vector<int> corpFlightBookings(vector<vector<int>>& bookings, int n) {
+        vector<int> res(n, 0);
+        vector<int> dif(n + 1, 0);
+        for (vector<int>& vec : bookings) {
+            dif[vec[0] - 1] += vec[2];
+            dif[vec[1]] -= vec[2];
+        }
+        res[0] = dif[0];
+        for (int i = 1; i < n; ++i) {
+            res[i] = res[i - 1] + dif[i];
+        }
+        return res;
+    }
+};

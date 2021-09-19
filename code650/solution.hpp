@@ -4,20 +4,37 @@
 
 using namespace std;
 
+// class Solution {
+// public:
+//     int minSteps(int n) {
+//         vector<int> dp(n + 1, 0);
+//         for(int i = 1; i <= n; i++){
+//             //寻找最大因子(这里有点贪心的味道在里面, 你品,你细品~)
+//             for(int k = i / 2; k > 0; k--){
+//                 if(i % k == 0){
+//                     dp[i] = dp[k] + 1 + (i - k) / k; //状态转移方程: dp[i] = 数字i的最大因子次数 加 复制一次 加 Paste次数
+//                     break;
+//                 }
+//             }
+//         }
+//         return dp[n];
+
+//     }
+// };
+
 class Solution {
 public:
     int minSteps(int n) {
-        vector<int> dp(n + 1, 0);
-        for(int i = 1; i <= n; i++){
-            //寻找最大因子(这里有点贪心的味道在里面, 你品,你细品~)
-            for(int k = i / 2; k > 0; k--){
-                if(i % k == 0){
-                    dp[i] = dp[k] + 1 + (i - k) / k; //状态转移方程: dp[i] = 数字i的最大因子次数 加 复制一次 加 Paste次数
-                    break;
-                }
+        if(n<=1) return 0;
+        int res = 0;
+        int d = 2;
+        while(n>1){
+            while(n%d==0){
+                res += d;
+                n/=d;
             }
+            d++;
         }
-        return dp[n];
-
+        return res;
     }
 };

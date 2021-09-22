@@ -1,4 +1,4 @@
-#include "../code101-200/code161-180/code165/solution.hpp"
+#include "../code1-100/code41-60/code58/solution.hpp"
 
 #include <iostream>
 
@@ -6,7 +6,7 @@ int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
 
-    test->compareVersion("1.0", "1.0.0");
+    test->lengthOfLastWord("a");
 
     return 0;
 }

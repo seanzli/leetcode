@@ -48,6 +48,7 @@ public:
         flag = Iterator::hasNext();
         if (flag)
             nextElement = Iterator::next();
+        return ret;
 	}
 	
 	bool hasNext() const {

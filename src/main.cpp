@@ -1,12 +1,13 @@
-#include "../code1-100/code41-60/code58/solution.hpp"
+// #include "../code1-100/code41-60/code58/solution.hpp"
+#include "../code575/solution.hpp"
 
 #include <iostream>
 
 int main(int argc, char* argv[])
 {
     Solution *test = new Solution();
-
-    test->lengthOfLastWord("a");
+    std::vector<int> in = {100000,0,100000,0,100000,0,100000,0,100000,0,100000,0};
+    std::cout << test->distributeCandies(in) << std::endl;
 
     return 0;
 }

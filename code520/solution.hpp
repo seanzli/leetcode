@@ -10,7 +10,7 @@ public:
 
     bool allCapital(const string& str) {
         for (const char& itr : str) {
-            if (!isCapital(itr))
+            if (islower(itr))
                 return false;
         }
         return true;
@@ -18,17 +18,13 @@ public:
 
     bool noCapital(const string& str) {
         for (const char& itr : str) {
-            if (isCapital(itr))
+            if (isupper(itr))
                 return false;
         }
         return true;
     }
 
     bool firstCapital(const string& str) {
-        return isCapital(str[0]) && noCapital(str.substr(1));
-    }
-
-    bool isCapital(const char& c) {
-        return (c <= 'Z' && c >= 'A');
+        return isupper(str[0]) && noCapital(str.substr(1));
     }
 };

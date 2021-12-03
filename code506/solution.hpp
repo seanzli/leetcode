@@ -19,7 +19,7 @@ public:
 
         vector<string> res(hash.size());
         for (int i = 0; i < hash.size(); ++i) {
-            res[hash[i].second] = to_string(i + 1);
+            res[hash[i].second] = std::to_string(i + 1);
         }
         res[hash[0].second] = "Gold Medal";
         if (res.size() > 1)

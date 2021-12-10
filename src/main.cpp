@@ -1,14 +1,18 @@
 // #include "../code1-100/code41-60/code58/solution.hpp"
-#include "../code575/solution.hpp"
+#include "../code748/solution.hpp"
 
 #include <iostream>
 
 int main(int argc, char* argv[])
 {
-    Solution *test = new Solution();
-    std::vector<int> in = {100000,0,100000,0,100000,0,100000,0,100000,0,100000,0};
-    std::cout << test->distributeCandies(in) << std::endl;
-
+    Solution s;
+    string licensePlate = "1s3 PSt";
+    vector<string> words = {
+        "step", "steps", "stripe", "stepple"
+    };
+    
+    std::cout << s.shortestCompletingWord(licensePlate, words) << std::endl;
+    
     return 0;
 }
 

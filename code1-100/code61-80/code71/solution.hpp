@@ -7,8 +7,8 @@
 
 using namespace std;
 
-class Solution {
-public:
+//class Solution {
+//public:
 /*     string simplifyPath(string path) {
         vector<string> temp = splitString(path);
         vector<string> out_vector;
@@ -46,58 +46,58 @@ public:
             sregex_token_iterator());
         return out;
     } */
-        string simplifyPath(string path) {
-        string res;
-        for (int i = 0; i < path.size(); ++i)
-        {
-            if (path[i] == '.')
-            {
-                if (i == path.size() - 1 || path[i + 1] == '/')
-                {
-                    ++i;
-                    continue;
-                }
-                if (path[i + 1] == '.')
-                {
-                    if (i + 1 < path.size() - 1 && path[i + 2] != '/')
-                    {
-                        while (i < path.size() && path[i] != '/')
-                        {
-                            res.push_back(path[i]);
-                            ++i;
-                        }
-                        --i;
-                        continue;
-                    }
-                    ++i;
-                    if (res.size() <= 1)
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        res.pop_back();
-                        while (res.back() != '/')
-                        {
-                            res.pop_back();
-                        }
-                        continue;
-                    }
-                }
-            }
-            if (path[i] == '/' && !res.empty() && res.back() == '/')
-            {
-                continue;
-            }
-            res.push_back(path[i]);
-        }
-        if (res.size() > 1 && res.back() == '/')
-        {
-            res.pop_back();
-        }
-        return res;
-    }
-};
+//        string simplifyPath(string path) {
+//        string res;
+//        for (int i = 0; i < path.size(); ++i)
+//        {
+//            if (path[i] == '.')
+//            {
+//                if (i == path.size() - 1 || path[i + 1] == '/')
+//                {
+//                    ++i;
+//                    continue;
+//                }
+//                if (path[i + 1] == '.')
+//                {
+//                    if (i + 1 < path.size() - 1 && path[i + 2] != '/')
+//                    {
+//                        while (i < path.size() && path[i] != '/')
+//                        {
+//                            res.push_back(path[i]);
+//                            ++i;
+//                        }
+//                        --i;
+//                        continue;
+//                    }
+//                    ++i;
+//                    if (res.size() <= 1)
+//                    {
+//                        continue;
+//                    }
+//                    else
+//                    {
+//                        res.pop_back();
+//                        while (res.back() != '/')
+//                        {
+//                            res.pop_back();
+//                        }
+//                        continue;
+//                    }
+//                }
+//            }
+//            if (path[i] == '/' && !res.empty() && res.back() == '/')
+//            {
+//                continue;
+//            }
+//            res.push_back(path[i]);
+//        }
+//        if (res.size() > 1 && res.back() == '/')
+//        {
+//            res.pop_back();
+//        }
+//        return res;
+//    }
+//};
 
 /* 常用函数：
 regex_match：全文匹配，要求整个字符串符合正则表达式的匹配规则。用来判断一个字符串和一个正则表达式是否模式匹配，如果匹配成功则返回true，否则返回false。
@@ -144,3 +144,40 @@ regex_replace：替换匹配，即可以将符合匹配规则的子字符串替�
 18. ? 表示零次或一次匹配前面的字符或子表达式；
 
 19. \t \n \r这些平时非常常见，分别表示制表符匹配、换行符匹配、回车符匹配。 */
+
+class Solution {
+public:
+    string simplifyPath(string path) {
+        vector<string> vec_path;
+        string cur;
+        for (char i : path) {
+            if (i == '/') {
+                if (cur.empty() || cur == ".") {
+                    ;
+                } else if (cur == "..") {
+                    if (!vec_path.empty()) {
+                        vec_path.pop_back();
+                    }
+                } else {
+                    vec_path.push_back(cur);
+                }
+                cur = "";
+            } else {
+                cur += i;
+            }
+        }
+        if (!cur.empty()) {
+            if (cur == "..") {
+                if (!vec_path.empty())
+                    vec_path.pop_back();
+            }
+            else if (cur != ".")
+                vec_path.push_back(cur);
+        }
+        string res;
+        for (string& itr : vec_path) {
+            res += "/" + itr;
+        }
+        return res.empty() ? "/" : res;
+    }
+};

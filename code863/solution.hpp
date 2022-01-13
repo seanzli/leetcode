@@ -60,15 +60,58 @@ struct TreeNode {
 //     }
 // };
 
+//class Solution {
+//    vector<TreeNode*> path;
+//    vector<int> res;
+//    TreeNode* cur = nullptr;
+//public:
+//    vector<int> distanceK(TreeNode* root, TreeNode* target, int k) {
+//        getPath(root, target->val);
+//        while (k >= 0 && path.size() > 0) {
+//            getValue(path.back(), k);
+//            cur = path.back();
+//            path.pop_back();
+//            k--;
+//        }
+//        return res;
+//    }
+//
+//    bool getPath(TreeNode* node, int val) {
+//        if (node == nullptr)
+//            return false;
+//        path.push_back(node);
+//        if (node->val == val)
+//            return true;
+//        if (getPath(node->left, val) == true || getPath(node->right, val) == true)
+//            return true;
+//        path.pop_back();
+//        return false;
+//    }
+//
+//    void getValue(TreeNode* node, int k) {
+//        if (node == nullptr)
+//            return;
+//        if (k == 0) {
+//            res.push_back(node->val);
+//            return;
+//        }
+//        if (cur != node->left)
+//            getValue(node->left, k - 1);
+//        if (cur != node->right)
+//            getValue(node->right, k - 1);
+//        return;
+//    }
+//};
+
 class Solution {
     vector<TreeNode*> path;
     vector<int> res;
-    TreeNode* cur = nullptr;
 public:
     vector<int> distanceK(TreeNode* root, TreeNode* target, int k) {
-        getPath(root, target->val);
+        dfs(root, target);
+        TreeNode* cur = nullptr;
         while (k >= 0 && path.size() > 0) {
-            getValue(path.back(), k);
+            distance(path.back(),cur, k);
             cur = path.back();
             path.pop_back();
             k--;
@@ -76,29 +119,29 @@ public:
         return res;
     }
 
-    bool getPath(TreeNode* node, int val) {
-        if (node == nullptr)
+private:
+    bool dfs(TreeNode* root, TreeNode* target) {
+        if (root == nullptr)
             return false;
-        path.push_back(node);
-        if (node->val == val)
-            return true;
-        if (getPath(node->left, val) == true || getPath(node->right, val) == true)
+        path.push_back(root);
+        if (root == target
+            || dfs(root->left, target)
+            || dfs(root->right, target)
+            )
             return true;
         path.pop_back();
         return false;
     }
 
-    void getValue(TreeNode* node, int k) {
-        if (node == nullptr)
+    void distance(TreeNode* node, TreeNode* avoid, int k) {
+        if (node == nullptr || node == avoid)
             return;
         if (k == 0) {
             res.push_back(node->val);
             return;
         }
-        if (cur != node->left)
-            getValue(node->left, k - 1);
-        if (cur != node->right)
-            getValue(node->right, k - 1);
+        distance(node->left, avoid,k - 1);
+        distance(node->right, avoid, k - 1);
         return;
     }
 };

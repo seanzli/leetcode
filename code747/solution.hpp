@@ -14,7 +14,7 @@ public:
         *itr = 0;
         int sec_value = *max_element(nums.begin(), nums.end());
         *itr = max_value;
-        if (max_value >= sec_value) {
+        if (max_value >= (sec_value<<2)) {
             return distance(nums.begin(), itr);
         }
         return -1;

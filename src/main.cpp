@@ -1,12 +1,11 @@
-#include "../code1414/solution.hpp"
+#include "../code682/solution.hpp"
 
 #include <iostream>
 
 int main(int argc, char* argv[])
 {
     Solution s;
-//    vector<vector<int>> num = {{1,3},{2,3},{3,1}};
-//    vector<vector<int>> num = {{1,3},{2,3}};
-    std::cout << s.findMinFibonacciNumbers(7) << std::endl;
+    vector<string> ops = {"5","2","C","D","+"};
+    std::cout << s.calPoints(ops) << std::endl;
     return 0;
 }
